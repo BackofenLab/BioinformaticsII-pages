@@ -196,6 +196,13 @@ index_replace(onec_ft)
 knitr::kable(onec)
 ```
 
+Alignment:
+```
+b: ___ACCAAG
+      |||
+c: AACACC___
+```
+
 #### {-}
 
 
@@ -277,6 +284,15 @@ A &  0&50 &50 &150&250&267&400&400&400\\
 G &  0&50 &50 &150&250&267&400&400&467\\
 \end{TAB}
 
+```
+
+One Possible Alignment:
+```
+a: __CACC_GG
+     ||||
+c: AACACC___
+      |||
+b: ___ACCAAG
 ```
 
 #### {-}
