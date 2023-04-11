@@ -228,11 +228,17 @@ What happens if we vary the parameters *k* and $T_1$?
 
 # Exercise 4 - Programming assignment
 
-Programming assignments are available via Github Classroom and contain automatic tests.
+::: {#hazard-background .hazard-background }
 
-We recommend doing these assignments since they will help you to further understand this topic.
+:::
 
-Access the Github Classroom link: [Programming Assignment: Sheet 06](https://classroom.github.com/a/Q9By3xyo).
+::: {.construction }
+Under Construction
+:::
+
+::: {#hazard-background .hazard-background }
+
+:::
 
 -------------------------------------------
 

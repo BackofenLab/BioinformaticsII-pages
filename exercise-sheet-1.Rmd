@@ -240,13 +240,20 @@ There are $16$ possible state sequences.
 
 -------------------------------------------
 
+
 # Exercise 3 - Programming assignment
 
-Programming assignments are available via Github Classroom and contain automatic tests.
+::: {#hazard-background .hazard-background }
 
-We recommend doing these assignments as they will help you further your understanding of this topic.
+:::
 
-Access the Github Classroom link: [Programming Assignment: Sheet 01](https://classroom.github.com/a/xZBCTRi7).
+::: {.construction }
+Under Construction
+:::
+
+::: {#hazard-background .hazard-background }
+
+:::
 
 -------------------------------------------
 

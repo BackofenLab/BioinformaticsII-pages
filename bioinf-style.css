@@ -225,3 +225,26 @@ pre {
     display: block;
   }
 }
+
+.hazard-background {
+  height: 30px;
+  color: white;
+  padding: 5px;
+  border-radius: 0.5em;
+  background-image: repeating-linear-gradient(
+    -55deg,
+    #000,
+    #000 20px,
+    #ffb101 20px,
+    #ffb101 40px
+  );
+}
+
+.construction {
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+}
+.construction p{
+  margin: 0px;
+}
