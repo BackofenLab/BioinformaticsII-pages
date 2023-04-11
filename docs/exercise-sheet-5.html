@@ -13,7 +13,7 @@
 
 <title>Exercise sheet 5: Probalign</title>
 
-<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -35,8 +35,7 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/tabwid-1.0.0/tabwid.css" rel="stylesheet" />
-<link href="site_libs/tabwid-1.0.0/scrool.css" rel="stylesheet" />
+<link href="site_libs/tabwid-1.1.2/tabwid.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -184,8 +183,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -193,16 +192,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -377,7 +369,11 @@ div.tocify {
 
 
 <hr />
-<p>For the following exercises on Probalign, we use an affine gap penalty with <span class="math inline">\(g(k) = \alpha + \beta k = -0.5 - 0.25k\)</span>, there temperature <span class="math inline">\(T=1\)</span> and the similarity function <span class="math inline">\(\sigma(x_i, y_j)\)</span>:</p>
+<p>For the following exercises on Probalign, we use an affine gap
+penalty with <span class="math inline">\(g(k) = \alpha + \beta k = -0.5
+- 0.25k\)</span>, there temperature <span
+class="math inline">\(T=1\)</span> and the similarity function <span
+class="math inline">\(\sigma(x_i, y_j)\)</span>:</p>
 <p><img src="figures/sheet-5/bordermatrix.png" width="50%" style="display: block; margin: auto;" /></p>
 <div id="exercise-1" class="section level1">
 <h1>Exercise 1</h1>
@@ -386,7 +382,8 @@ div.tocify {
 <div id="question-1a" class="section level5">
 <h5>Question 1A</h5>
 <div class="question">
-<p>Compute the Boltzmann-weighted score for the following alignments:</p>
+<p>Compute the Boltzmann-weighted score for the following
+alignments:</p>
 <pre><code>(a)  x: --AGCGG          (b) x: AGCGG------
           ||:||                     :
      y: ACAGGGG              y: ----ACAGGGG</code></pre>
@@ -396,23 +393,31 @@ div.tocify {
 <h5>Hint 1 : Formulae</h5>
 <div class="answer">
 <p><span class="math display">\[
-S(a) = \sum_{x_i \sim y_j \in a} \sigma(x_i,y_j) + \sum \text{gap penalties}\\
-e^{\frac{S(a)}{T}} = \Bigg(\prod_{x_i\sim y_j \in a} e^{\frac{\sigma(x_i,y_j)}{T}} \Bigg) \times e^{\frac{\sum \text{gap penalties}}{T}}\\
+S(a) = \sum_{x_i \sim y_j \in a} \sigma(x_i,y_j) + \sum \text{gap
+penalties}\\
+e^{\frac{S(a)}{T}} = \Bigg(\prod_{x_i\sim y_j \in a}
+e^{\frac{\sigma(x_i,y_j)}{T}} \Bigg) \times e^{\frac{\sum \text{gap
+penalties}}{T}}\\
 \]</span></p>
 </div>
 </div>
 <div id="hint-2" class="section level5">
 <h5>Hint 2</h5>
 <div class="answer">
-<p>For each alignment you only need to calculate <span class="math inline">\(e^x\)</span> once.</p>
+<p>For each alignment you only need to calculate <span
+class="math inline">\(e^x\)</span> once.</p>
 </div>
 </div>
 <div id="hint-3-calculations" class="section level5">
 <h5>Hint 3: Calculations</h5>
 <div class="answer">
 <p><span class="math display">\[\begin{align*}
-\text{(a)} &amp;\qquad e^{\sigma(A,A)} \times e^{3\sigma(G,G)} \times e^{\sigma(C,G)} \times e^{g(2)} &amp;&amp;= e^2 \times e^6 \times e^{-1} \times e^{-0.5 +(-0.25\times 2)} = e^6 \\
-\text{(b)} &amp;\qquad e^{\sigma(G,A)} \times e^{g(4)} \times e^{g(6)} &amp;&amp;= e^{-1} \times e^{0.5 + (-0.25\times 4)} \times e^{0.5 + (-0.25\times 6)} = e^{-4.5}
+\text{(a)} &amp;\qquad e^{\sigma(A,A)} \times e^{3\sigma(G,G)} \times
+e^{\sigma(C,G)} \times e^{g(2)} &amp;&amp;= e^2 \times e^6 \times e^{-1}
+\times e^{-0.5 +(-0.25\times 2)} = e^6 \\
+\text{(b)} &amp;\qquad e^{\sigma(G,A)} \times e^{g(4)} \times e^{g(6)}
+&amp;&amp;= e^{-1} \times e^{0.5 + (-0.25\times 4)} \times e^{0.5 +
+(-0.25\times 6)} = e^{-4.5}
 \end{align*}\]</span></p>
 </div>
 </div>
@@ -438,14 +443,17 @@ e^{\frac{S(a)}{T}} = \Bigg(\prod_{x_i\sim y_j \in a} e^{\frac{\sigma(x_i,y_j)}{T
 <div id="question-2a" class="section level5">
 <h5>Question 2A</h5>
 <div class="question">
-<p>Derive the recursion formula for <span class="math inline">\(Z^{I}_{i,j}\)</span>. Allow insertions after deletions and vice versa.</p>
+<p>Derive the recursion formula for <span
+class="math inline">\(Z^{I}_{i,j}\)</span>. Allow insertions after
+deletions and vice versa.</p>
 </div>
 </div>
 <div id="solution-1" class="section level5">
 <h5>Solution</h5>
 <div class="answer">
 <p><span class="math display">\[
-Z^{I}_{i,j} = Z^{I}_{i,j-1} \times e^\frac{\beta}{T} + Z^{M}_{i,j-1} \times e^\frac{g(1)}{T}  + Z^{D}_{i,j-1} \times e^\frac{g(1)}{T}
+Z^{I}_{i,j} = Z^{I}_{i,j-1} \times e^\frac{\beta}{T} + Z^{M}_{i,j-1}
+\times e^\frac{g(1)}{T}  + Z^{D}_{i,j-1} \times e^\frac{g(1)}{T}
 \]</span></p>
 </div>
 </div>
@@ -459,7 +467,10 @@ Z^{I}_{i,j} = Z^{I}_{i,j-1} \times e^\frac{\beta}{T} + Z^{M}_{i,j-1} \times e^\f
 <div id="question-2b" class="section level5">
 <h5>Question 2B</h5>
 <div class="question">
-<p>Compute the partition function Z(T) by dynamic programming for the sequences <code>x=ACC</code> and <code>y=AC</code>. Allow insertions after deletions and vice versa. In order to simplify the computations, you can round to two digits after the decimal point.</p>
+<p>Compute the partition function Z(T) by dynamic programming for the
+sequences <code>x=ACC</code> and <code>y=AC</code>. Allow insertions
+after deletions and vice versa. In order to simplify the computations,
+you can round to two digits after the decimal point.</p>
 </div>
 </div>
 <div id="hint-1-formulae-1" class="section level5">
@@ -472,16 +483,20 @@ Z^D_{0,j} &amp;= 0
 \end{align*}\]</span></p>
 <p>Recursion: <span class="math display">\[\begin{align*}
 Z^{M}_{i,j} &amp;= Z_{i-1,j-1} \times e^{\frac{\sigma(x_i,y_j)}{T}}\\
-Z^{I}_{i,j} &amp;= Z^{I}_{i,j-1} \times e^\frac{\beta}{T} + Z^{M}_{i,j-1} \times e^\frac{g(1)}{T}  + Z^{D}_{i,j-1} \times e^\frac{g(1)}{T}\\
-Z^{D}_{i,j} &amp;= Z^{D}_{i-1,j} \times e^\frac{\beta}{T} + Z^{M}_{i-1,j} \times e^\frac{g(1)}{T}  + Z^{I}_{i-1,j} \times e^\frac{g(1)}{T}\\
-Z_{i,j} &amp;= Z^{M}_{i,j} + Z^{I}_{i,j} + Z^{D}_{i,j} 
+Z^{I}_{i,j} &amp;= Z^{I}_{i,j-1} \times e^\frac{\beta}{T} +
+Z^{M}_{i,j-1} \times e^\frac{g(1)}{T}  + Z^{D}_{i,j-1} \times
+e^\frac{g(1)}{T}\\
+Z^{D}_{i,j} &amp;= Z^{D}_{i-1,j} \times e^\frac{\beta}{T} +
+Z^{M}_{i-1,j} \times e^\frac{g(1)}{T}  + Z^{I}_{i-1,j} \times
+e^\frac{g(1)}{T}\\
+Z_{i,j} &amp;= Z^{M}_{i,j} + Z^{I}_{i,j} + Z^{D}_{i,j}
 \end{align*}\]</span></p>
 </div>
 </div>
 <div id="solution-2" class="section level5">
 <h5>Solution</h5>
 <div class="answer">
-<template id="a444d38d-fc33-495d-9419-e477c000b6c5"><style>
+<template id="b0c145a6-255f-4599-b268-59b81473eebc"><style>
 .tabwid table{
   border-spacing:0px !important;
   border-collapse:collapse;
@@ -489,10 +504,11 @@ Z_{i,j} &amp;= Z^{M}_{i,j} + Z^{I}_{i,j} + Z^{D}_{i,j}
   margin-left:auto;
   margin-right:auto;
   border-width: 0;
-  display: table;
-  margin-top: 1.275em;
-  margin-bottom: 1.275em;
   border-color: transparent;
+  caption-side: top;
+}
+.tabwid-caption-bottom table{
+  caption-side: bottom;
 }
 .tabwid_left table{
   margin-left:0;
@@ -500,7 +516,7 @@ Z_{i,j} &amp;= Z^{M}_{i,j} + Z^{I}_{i,j} + Z^{D}_{i,j}
 .tabwid_right table{
   margin-right:0;
 }
-.tabwid td {
+.tabwid td, .tabwid th {
     padding: 0;
 }
 .tabwid a {
@@ -518,25 +534,17 @@ background-color: transparent;
 .katex-display {
     margin: 0 0 !important;
 }
-</style><div class="tabwid"><style>.cl-9ff8f026{}.cl-9ff0351c{font-family:'DejaVu Sans';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-9ff03526{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3.3pt;}.cl-9ff03530{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-9ff03531{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-9ff0478c{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-9ff077ac{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ff077ad{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ff077b6{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ff077b7{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ff077b8{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9ff077c0{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-9ff8f026'>
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-9ff077c0"><p class="cl-9ff0478c"><span class="cl-9ff0351c">Z</span><span class="cl-9ff03526">M</span><span class="cl-9ff03530"></span></p></td><td class="cl-9ff077b8"><p class="cl-9ff0478c"><span class="cl-9ff0351c">-</span><span class="cl-9ff03526"></span><span class="cl-9ff03530"></span></p></td><td class="cl-9ff077b8"><p class="cl-9ff0478c"><span class="cl-9ff0351c">A</span><span class="cl-9ff03526"></span><span class="cl-9ff03530"></span></p></td><td class="cl-9ff077b8"><p class="cl-9ff0478c"><span class="cl-9ff0351c">C</span><span class="cl-9ff03526"></span><span class="cl-9ff03530"></span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-9ff077ac"><p class="cl-9ff0478c"><span class="cl-9ff0351c">-</span></p></td><td class="cl-9ff077ad"><p class="cl-9ff0478c"><span class="cl-9ff03531">1</span></p></td><td class="cl-9ff077ad"><p class="cl-9ff0478c"><span class="cl-9ff03531">0.00</span></p></td><td class="cl-9ff077ad"><p class="cl-9ff0478c"><span class="cl-9ff03531">0.00</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-9ff077b7"><p class="cl-9ff0478c"><span class="cl-9ff0351c">A</span></p></td><td class="cl-9ff077b6"><p class="cl-9ff0478c"><span class="cl-9ff03531">0</span></p></td><td class="cl-9ff077b6"><p class="cl-9ff0478c"><span class="cl-9ff03531">7.39</span></p></td><td class="cl-9ff077b6"><p class="cl-9ff0478c"><span class="cl-9ff03531">0.17</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-9ff077b7"><p class="cl-9ff0478c"><span class="cl-9ff0351c">C</span></p></td><td class="cl-9ff077b6"><p class="cl-9ff0478c"><span class="cl-9ff03531">0</span></p></td><td class="cl-9ff077b6"><p class="cl-9ff0478c"><span class="cl-9ff03531">0.17</span></p></td><td class="cl-9ff077b6"><p class="cl-9ff0478c"><span class="cl-9ff03531">57.90</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-9ff077b7"><p class="cl-9ff0478c"><span class="cl-9ff0351c">C</span></p></td><td class="cl-9ff077b6"><p class="cl-9ff0478c"><span class="cl-9ff03531">0</span></p></td><td class="cl-9ff077b6"><p class="cl-9ff0478c"><span class="cl-9ff03531">0.14</span></p></td><td class="cl-9ff077b6"><p class="cl-9ff0478c"><span class="cl-9ff03531">30.42</span></p></td></tr></tbody></table></div></template>
-<div class="flextable-shadow-host" id="f4c44e0a-6210-4bcc-a7a6-3cd20c2a1a20"></div>
+</style><div class="tabwid"><style>.cl-ca0abdce{}.cl-ca0272ae{font-family:'DejaVu Sans';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-ca0272b8{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3.3pt;}.cl-ca0272c2{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-ca0272c3{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-ca067098{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-ca068560{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca06856a{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca06856b{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca06856c{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca068574{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca06857e{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-ca0abdce'><thead><tr style="overflow-wrap:break-word;"><th class="cl-ca068560"><p class="cl-ca067098"><span class="cl-ca0272ae">Z</span><span class="cl-ca0272b8">M</span><span class="cl-ca0272c2"></span></p></th><th class="cl-ca06856a"><p class="cl-ca067098"><span class="cl-ca0272ae">-</span><span class="cl-ca0272b8"></span><span class="cl-ca0272c2"></span></p></th><th class="cl-ca06856a"><p class="cl-ca067098"><span class="cl-ca0272ae">A</span><span class="cl-ca0272b8"></span><span class="cl-ca0272c2"></span></p></th><th class="cl-ca06856a"><p class="cl-ca067098"><span class="cl-ca0272ae">C</span><span class="cl-ca0272b8"></span><span class="cl-ca0272c2"></span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-ca06856b"><p class="cl-ca067098"><span class="cl-ca0272ae">-</span></p></td><td class="cl-ca06856c"><p class="cl-ca067098"><span class="cl-ca0272c3">1</span></p></td><td class="cl-ca06856c"><p class="cl-ca067098"><span class="cl-ca0272c3">0.00</span></p></td><td class="cl-ca06856c"><p class="cl-ca067098"><span class="cl-ca0272c3">0.00</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ca068574"><p class="cl-ca067098"><span class="cl-ca0272ae">A</span></p></td><td class="cl-ca06857e"><p class="cl-ca067098"><span class="cl-ca0272c3">0</span></p></td><td class="cl-ca06857e"><p class="cl-ca067098"><span class="cl-ca0272c3">7.39</span></p></td><td class="cl-ca06857e"><p class="cl-ca067098"><span class="cl-ca0272c3">0.17</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ca068574"><p class="cl-ca067098"><span class="cl-ca0272ae">C</span></p></td><td class="cl-ca06857e"><p class="cl-ca067098"><span class="cl-ca0272c3">0</span></p></td><td class="cl-ca06857e"><p class="cl-ca067098"><span class="cl-ca0272c3">0.17</span></p></td><td class="cl-ca06857e"><p class="cl-ca067098"><span class="cl-ca0272c3">57.90</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ca068574"><p class="cl-ca067098"><span class="cl-ca0272ae">C</span></p></td><td class="cl-ca06857e"><p class="cl-ca067098"><span class="cl-ca0272c3">0</span></p></td><td class="cl-ca06857e"><p class="cl-ca067098"><span class="cl-ca0272c3">0.14</span></p></td><td class="cl-ca06857e"><p class="cl-ca067098"><span class="cl-ca0272c3">30.42</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="f0a57596-e196-4827-af80-b56a7702d7a9"></div>
 <script>
-var dest = document.getElementById("f4c44e0a-6210-4bcc-a7a6-3cd20c2a1a20");
-var template = document.getElementById("a444d38d-fc33-495d-9419-e477c000b6c5");
-var caption = template.content.querySelector("caption");
-if(caption) {
-  caption.style.cssText = "display:block;text-align:center;";
-  var newcapt = document.createElement("p");
-  newcapt.appendChild(caption)
-  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
-}
+var dest = document.getElementById("f0a57596-e196-4827-af80-b56a7702d7a9");
+var template = document.getElementById("b0c145a6-255f-4599-b268-59b81473eebc");
 var fantome = dest.attachShadow({mode: 'open'});
 var templateContent = template.content;
 fantome.appendChild(templateContent);
 </script>
 
-<template id="cf357210-2dda-48cf-a7db-30e5d11b9dda"><style>
+<template id="056e6259-0f13-4cb1-b970-37c8e6e3ae4d"><style>
 .tabwid table{
   border-spacing:0px !important;
   border-collapse:collapse;
@@ -544,10 +552,11 @@ fantome.appendChild(templateContent);
   margin-left:auto;
   margin-right:auto;
   border-width: 0;
-  display: table;
-  margin-top: 1.275em;
-  margin-bottom: 1.275em;
   border-color: transparent;
+  caption-side: top;
+}
+.tabwid-caption-bottom table{
+  caption-side: bottom;
 }
 .tabwid_left table{
   margin-left:0;
@@ -555,7 +564,7 @@ fantome.appendChild(templateContent);
 .tabwid_right table{
   margin-right:0;
 }
-.tabwid td {
+.tabwid td, .tabwid th {
     padding: 0;
 }
 .tabwid a {
@@ -573,25 +582,17 @@ background-color: transparent;
 .katex-display {
     margin: 0 0 !important;
 }
-</style><div class="tabwid"><style>.cl-a00e4818{}.cl-a008c2da{font-family:'DejaVu Sans';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a008c2e4{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3.3pt;}.cl-a008c2ee{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-a008c2ef{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a008d1ee{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-a008fb1a{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a008fb24{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a008fb25{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a008fb2e{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a008fb2f{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a008fb30{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-a00e4818'>
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-a008fb30"><p class="cl-a008d1ee"><span class="cl-a008c2da">Z</span><span class="cl-a008c2e4">I</span><span class="cl-a008c2ee"></span></p></td><td class="cl-a008fb2f"><p class="cl-a008d1ee"><span class="cl-a008c2da">-</span><span class="cl-a008c2e4"></span><span class="cl-a008c2ee"></span></p></td><td class="cl-a008fb2f"><p class="cl-a008d1ee"><span class="cl-a008c2da">A</span><span class="cl-a008c2e4"></span><span class="cl-a008c2ee"></span></p></td><td class="cl-a008fb2f"><p class="cl-a008d1ee"><span class="cl-a008c2da">C</span><span class="cl-a008c2e4"></span><span class="cl-a008c2ee"></span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-a008fb1a"><p class="cl-a008d1ee"><span class="cl-a008c2da">-</span></p></td><td class="cl-a008fb24"><p class="cl-a008d1ee"><span class="cl-a008c2ef">0</span></p></td><td class="cl-a008fb24"><p class="cl-a008d1ee"><span class="cl-a008c2ef">0.47</span></p></td><td class="cl-a008fb24"><p class="cl-a008d1ee"><span class="cl-a008c2ef">0.37</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a008fb2e"><p class="cl-a008d1ee"><span class="cl-a008c2da">A</span></p></td><td class="cl-a008fb25"><p class="cl-a008d1ee"><span class="cl-a008c2ef">0</span></p></td><td class="cl-a008fb25"><p class="cl-a008d1ee"><span class="cl-a008c2ef">0.22</span></p></td><td class="cl-a008fb25"><p class="cl-a008d1ee"><span class="cl-a008c2ef">3.77</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a008fb2e"><p class="cl-a008d1ee"><span class="cl-a008c2da">C</span></p></td><td class="cl-a008fb25"><p class="cl-a008d1ee"><span class="cl-a008c2ef">0</span></p></td><td class="cl-a008fb25"><p class="cl-a008d1ee"><span class="cl-a008c2ef">0.17</span></p></td><td class="cl-a008fb25"><p class="cl-a008d1ee"><span class="cl-a008c2ef">2.00</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a008fb2e"><p class="cl-a008d1ee"><span class="cl-a008c2da">C</span></p></td><td class="cl-a008fb25"><p class="cl-a008d1ee"><span class="cl-a008c2ef">0</span></p></td><td class="cl-a008fb25"><p class="cl-a008d1ee"><span class="cl-a008c2ef">0.14</span></p></td><td class="cl-a008fb25"><p class="cl-a008d1ee"><span class="cl-a008c2ef">1.63</span></p></td></tr></tbody></table></div></template>
-<div class="flextable-shadow-host" id="7394fae0-6b88-40e9-bac3-76bdc9e51fdf"></div>
+</style><div class="tabwid"><style>.cl-ca1e2dbe{}.cl-ca17025a{font-family:'DejaVu Sans';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-ca170264{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3.3pt;}.cl-ca170265{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-ca170266{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-ca1a2480{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-ca1a38b2{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca1a38bc{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca1a38bd{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca1a38be{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca1a38c6{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca1a38c7{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-ca1e2dbe'><thead><tr style="overflow-wrap:break-word;"><th class="cl-ca1a38b2"><p class="cl-ca1a2480"><span class="cl-ca17025a">Z</span><span class="cl-ca170264">I</span><span class="cl-ca170265"></span></p></th><th class="cl-ca1a38bc"><p class="cl-ca1a2480"><span class="cl-ca17025a">-</span><span class="cl-ca170264"></span><span class="cl-ca170265"></span></p></th><th class="cl-ca1a38bc"><p class="cl-ca1a2480"><span class="cl-ca17025a">A</span><span class="cl-ca170264"></span><span class="cl-ca170265"></span></p></th><th class="cl-ca1a38bc"><p class="cl-ca1a2480"><span class="cl-ca17025a">C</span><span class="cl-ca170264"></span><span class="cl-ca170265"></span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-ca1a38bd"><p class="cl-ca1a2480"><span class="cl-ca17025a">-</span></p></td><td class="cl-ca1a38be"><p class="cl-ca1a2480"><span class="cl-ca170266">0</span></p></td><td class="cl-ca1a38be"><p class="cl-ca1a2480"><span class="cl-ca170266">0.47</span></p></td><td class="cl-ca1a38be"><p class="cl-ca1a2480"><span class="cl-ca170266">0.37</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ca1a38c6"><p class="cl-ca1a2480"><span class="cl-ca17025a">A</span></p></td><td class="cl-ca1a38c7"><p class="cl-ca1a2480"><span class="cl-ca170266">0</span></p></td><td class="cl-ca1a38c7"><p class="cl-ca1a2480"><span class="cl-ca170266">0.22</span></p></td><td class="cl-ca1a38c7"><p class="cl-ca1a2480"><span class="cl-ca170266">3.77</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ca1a38c6"><p class="cl-ca1a2480"><span class="cl-ca17025a">C</span></p></td><td class="cl-ca1a38c7"><p class="cl-ca1a2480"><span class="cl-ca170266">0</span></p></td><td class="cl-ca1a38c7"><p class="cl-ca1a2480"><span class="cl-ca170266">0.17</span></p></td><td class="cl-ca1a38c7"><p class="cl-ca1a2480"><span class="cl-ca170266">2.00</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ca1a38c6"><p class="cl-ca1a2480"><span class="cl-ca17025a">C</span></p></td><td class="cl-ca1a38c7"><p class="cl-ca1a2480"><span class="cl-ca170266">0</span></p></td><td class="cl-ca1a38c7"><p class="cl-ca1a2480"><span class="cl-ca170266">0.14</span></p></td><td class="cl-ca1a38c7"><p class="cl-ca1a2480"><span class="cl-ca170266">1.63</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="7e69e476-3d01-4cb3-820f-db69a4e5945c"></div>
 <script>
-var dest = document.getElementById("7394fae0-6b88-40e9-bac3-76bdc9e51fdf");
-var template = document.getElementById("cf357210-2dda-48cf-a7db-30e5d11b9dda");
-var caption = template.content.querySelector("caption");
-if(caption) {
-  caption.style.cssText = "display:block;text-align:center;";
-  var newcapt = document.createElement("p");
-  newcapt.appendChild(caption)
-  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
-}
+var dest = document.getElementById("7e69e476-3d01-4cb3-820f-db69a4e5945c");
+var template = document.getElementById("056e6259-0f13-4cb1-b970-37c8e6e3ae4d");
 var fantome = dest.attachShadow({mode: 'open'});
 var templateContent = template.content;
 fantome.appendChild(templateContent);
 </script>
 
-<template id="e88c3393-433e-416c-b6ad-9085c4119dd8"><style>
+<template id="2d06952e-5906-4759-8929-5c44e05b647e"><style>
 .tabwid table{
   border-spacing:0px !important;
   border-collapse:collapse;
@@ -599,10 +600,11 @@ fantome.appendChild(templateContent);
   margin-left:auto;
   margin-right:auto;
   border-width: 0;
-  display: table;
-  margin-top: 1.275em;
-  margin-bottom: 1.275em;
   border-color: transparent;
+  caption-side: top;
+}
+.tabwid-caption-bottom table{
+  caption-side: bottom;
 }
 .tabwid_left table{
   margin-left:0;
@@ -610,7 +612,7 @@ fantome.appendChild(templateContent);
 .tabwid_right table{
   margin-right:0;
 }
-.tabwid td {
+.tabwid td, .tabwid th {
     padding: 0;
 }
 .tabwid a {
@@ -628,25 +630,17 @@ background-color: transparent;
 .katex-display {
     margin: 0 0 !important;
 }
-</style><div class="tabwid"><style>.cl-a01f6ecc{}.cl-a019c31e{font-family:'DejaVu Sans';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a019c328{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3.3pt;}.cl-a019c332{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-a019c333{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a019d37c{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-a019fdde{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a019fde8{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a019fde9{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a019fdf2{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a019fdf3{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a019fdf4{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-a01f6ecc'>
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-a019fdf4"><p class="cl-a019d37c"><span class="cl-a019c31e">Z</span><span class="cl-a019c328">D</span><span class="cl-a019c332"></span></p></td><td class="cl-a019fdf3"><p class="cl-a019d37c"><span class="cl-a019c31e">-</span><span class="cl-a019c328"></span><span class="cl-a019c332"></span></p></td><td class="cl-a019fdf3"><p class="cl-a019d37c"><span class="cl-a019c31e">A</span><span class="cl-a019c328"></span><span class="cl-a019c332"></span></p></td><td class="cl-a019fdf3"><p class="cl-a019d37c"><span class="cl-a019c31e">C</span><span class="cl-a019c328"></span><span class="cl-a019c332"></span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-a019fdde"><p class="cl-a019d37c"><span class="cl-a019c31e">-</span></p></td><td class="cl-a019fde8"><p class="cl-a019d37c"><span class="cl-a019c333">0.00</span></p></td><td class="cl-a019fde8"><p class="cl-a019d37c"><span class="cl-a019c333">0.00</span></p></td><td class="cl-a019fde8"><p class="cl-a019d37c"><span class="cl-a019c333">0.00</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a019fdf2"><p class="cl-a019d37c"><span class="cl-a019c31e">A</span></p></td><td class="cl-a019fde9"><p class="cl-a019d37c"><span class="cl-a019c333">0.47</span></p></td><td class="cl-a019fde9"><p class="cl-a019d37c"><span class="cl-a019c333">0.22</span></p></td><td class="cl-a019fde9"><p class="cl-a019d37c"><span class="cl-a019c333">0.17</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a019fdf2"><p class="cl-a019d37c"><span class="cl-a019c31e">C</span></p></td><td class="cl-a019fde9"><p class="cl-a019d37c"><span class="cl-a019c333">0.37</span></p></td><td class="cl-a019fde9"><p class="cl-a019d37c"><span class="cl-a019c333">3.68</span></p></td><td class="cl-a019fde9"><p class="cl-a019d37c"><span class="cl-a019c333">2.00</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a019fdf2"><p class="cl-a019d37c"><span class="cl-a019c31e">C</span></p></td><td class="cl-a019fde9"><p class="cl-a019d37c"><span class="cl-a019c333">0.29</span></p></td><td class="cl-a019fde9"><p class="cl-a019d37c"><span class="cl-a019c333">3.10</span></p></td><td class="cl-a019fde9"><p class="cl-a019d37c"><span class="cl-a019c333">29.85</span></p></td></tr></tbody></table></div></template>
-<div class="flextable-shadow-host" id="08a3c4b0-b7a4-4828-a263-e9a0ee7fa9a6"></div>
+</style><div class="tabwid"><style>.cl-ca3256ae{}.cl-ca2a9784{font-family:'DejaVu Sans';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-ca2a9798{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3.3pt;}.cl-ca2a9799{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-ca2a979a{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-ca2db87e{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-ca2dcc1a{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca2dcc1b{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca2dcc24{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca2dcc25{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca2dcc26{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca2dcc2e{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-ca3256ae'><thead><tr style="overflow-wrap:break-word;"><th class="cl-ca2dcc1a"><p class="cl-ca2db87e"><span class="cl-ca2a9784">Z</span><span class="cl-ca2a9798">D</span><span class="cl-ca2a9799"></span></p></th><th class="cl-ca2dcc1b"><p class="cl-ca2db87e"><span class="cl-ca2a9784">-</span><span class="cl-ca2a9798"></span><span class="cl-ca2a9799"></span></p></th><th class="cl-ca2dcc1b"><p class="cl-ca2db87e"><span class="cl-ca2a9784">A</span><span class="cl-ca2a9798"></span><span class="cl-ca2a9799"></span></p></th><th class="cl-ca2dcc1b"><p class="cl-ca2db87e"><span class="cl-ca2a9784">C</span><span class="cl-ca2a9798"></span><span class="cl-ca2a9799"></span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-ca2dcc24"><p class="cl-ca2db87e"><span class="cl-ca2a9784">-</span></p></td><td class="cl-ca2dcc25"><p class="cl-ca2db87e"><span class="cl-ca2a979a">0.00</span></p></td><td class="cl-ca2dcc25"><p class="cl-ca2db87e"><span class="cl-ca2a979a">0.00</span></p></td><td class="cl-ca2dcc25"><p class="cl-ca2db87e"><span class="cl-ca2a979a">0.00</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ca2dcc26"><p class="cl-ca2db87e"><span class="cl-ca2a9784">A</span></p></td><td class="cl-ca2dcc2e"><p class="cl-ca2db87e"><span class="cl-ca2a979a">0.47</span></p></td><td class="cl-ca2dcc2e"><p class="cl-ca2db87e"><span class="cl-ca2a979a">0.22</span></p></td><td class="cl-ca2dcc2e"><p class="cl-ca2db87e"><span class="cl-ca2a979a">0.17</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ca2dcc26"><p class="cl-ca2db87e"><span class="cl-ca2a9784">C</span></p></td><td class="cl-ca2dcc2e"><p class="cl-ca2db87e"><span class="cl-ca2a979a">0.37</span></p></td><td class="cl-ca2dcc2e"><p class="cl-ca2db87e"><span class="cl-ca2a979a">3.68</span></p></td><td class="cl-ca2dcc2e"><p class="cl-ca2db87e"><span class="cl-ca2a979a">2.00</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ca2dcc26"><p class="cl-ca2db87e"><span class="cl-ca2a9784">C</span></p></td><td class="cl-ca2dcc2e"><p class="cl-ca2db87e"><span class="cl-ca2a979a">0.29</span></p></td><td class="cl-ca2dcc2e"><p class="cl-ca2db87e"><span class="cl-ca2a979a">3.10</span></p></td><td class="cl-ca2dcc2e"><p class="cl-ca2db87e"><span class="cl-ca2a979a">29.85</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="57159220-084e-42d7-8af0-fb00d44a92e2"></div>
 <script>
-var dest = document.getElementById("08a3c4b0-b7a4-4828-a263-e9a0ee7fa9a6");
-var template = document.getElementById("e88c3393-433e-416c-b6ad-9085c4119dd8");
-var caption = template.content.querySelector("caption");
-if(caption) {
-  caption.style.cssText = "display:block;text-align:center;";
-  var newcapt = document.createElement("p");
-  newcapt.appendChild(caption)
-  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
-}
+var dest = document.getElementById("57159220-084e-42d7-8af0-fb00d44a92e2");
+var template = document.getElementById("2d06952e-5906-4759-8929-5c44e05b647e");
 var fantome = dest.attachShadow({mode: 'open'});
 var templateContent = template.content;
 fantome.appendChild(templateContent);
 </script>
 
-<template id="0ff5de6e-7900-4584-a799-0014f172ccf7"><style>
+<template id="3696f7a5-6f48-4b77-830e-4629808d1b09"><style>
 .tabwid table{
   border-spacing:0px !important;
   border-collapse:collapse;
@@ -654,10 +648,11 @@ fantome.appendChild(templateContent);
   margin-left:auto;
   margin-right:auto;
   border-width: 0;
-  display: table;
-  margin-top: 1.275em;
-  margin-bottom: 1.275em;
   border-color: transparent;
+  caption-side: top;
+}
+.tabwid-caption-bottom table{
+  caption-side: bottom;
 }
 .tabwid_left table{
   margin-left:0;
@@ -665,7 +660,7 @@ fantome.appendChild(templateContent);
 .tabwid_right table{
   margin-right:0;
 }
-.tabwid td {
+.tabwid td, .tabwid th {
     padding: 0;
 }
 .tabwid a {
@@ -683,19 +678,11 @@ background-color: transparent;
 .katex-display {
     margin: 0 0 !important;
 }
-</style><div class="tabwid"><style>.cl-a02f14f8{}.cl-a0299334{font-family:'DejaVu Sans';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a029933e{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a029a176{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-a029cafc{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a029cb06{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a029cb07{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a029cb08{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a029cb10{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a029cb11{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-a02f14f8'>
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-a029cb11"><p class="cl-a029a176"><span class="cl-a0299334">Z</span></p></td><td class="cl-a029cb10"><p class="cl-a029a176"><span class="cl-a0299334">-</span></p></td><td class="cl-a029cb10"><p class="cl-a029a176"><span class="cl-a0299334">A</span></p></td><td class="cl-a029cb10"><p class="cl-a029a176"><span class="cl-a0299334">C</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-a029cafc"><p class="cl-a029a176"><span class="cl-a0299334">-</span></p></td><td class="cl-a029cb06"><p class="cl-a029a176"><span class="cl-a029933e">1.00</span></p></td><td class="cl-a029cb06"><p class="cl-a029a176"><span class="cl-a029933e">0.47</span></p></td><td class="cl-a029cb06"><p class="cl-a029a176"><span class="cl-a029933e">0.37</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a029cb08"><p class="cl-a029a176"><span class="cl-a0299334">A</span></p></td><td class="cl-a029cb07"><p class="cl-a029a176"><span class="cl-a029933e">0.47</span></p></td><td class="cl-a029cb07"><p class="cl-a029a176"><span class="cl-a029933e">7.84</span></p></td><td class="cl-a029cb07"><p class="cl-a029a176"><span class="cl-a029933e">4.12</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a029cb08"><p class="cl-a029a176"><span class="cl-a0299334">C</span></p></td><td class="cl-a029cb07"><p class="cl-a029a176"><span class="cl-a029933e">0.37</span></p></td><td class="cl-a029cb07"><p class="cl-a029a176"><span class="cl-a029933e">4.12</span></p></td><td class="cl-a029cb07"><p class="cl-a029a176"><span class="cl-a029933e">61.89</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a029cb08"><p class="cl-a029a176"><span class="cl-a0299334">C</span></p></td><td class="cl-a029cb07"><p class="cl-a029a176"><span class="cl-a029933e">0.29</span></p></td><td class="cl-a029cb07"><p class="cl-a029a176"><span class="cl-a029933e">3.37</span></p></td><td class="cl-a029cb07"><p class="cl-a029a176"><span class="cl-a029933e">61.90</span></p></td></tr></tbody></table></div></template>
-<div class="flextable-shadow-host" id="a3808990-4201-47b2-935b-33bf98d0c4f1"></div>
+</style><div class="tabwid"><style>.cl-ca458e40{}.cl-ca3c3098{font-family:'DejaVu Sans';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-ca3c30a2{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-ca3f8b26{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-ca3fa08e{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca3fa098{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca3fa0a2{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca3fa0a3{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca3fa0a4{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca3fa0a5{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-ca458e40'><thead><tr style="overflow-wrap:break-word;"><th class="cl-ca3fa08e"><p class="cl-ca3f8b26"><span class="cl-ca3c3098">Z</span></p></th><th class="cl-ca3fa098"><p class="cl-ca3f8b26"><span class="cl-ca3c3098">-</span></p></th><th class="cl-ca3fa098"><p class="cl-ca3f8b26"><span class="cl-ca3c3098">A</span></p></th><th class="cl-ca3fa098"><p class="cl-ca3f8b26"><span class="cl-ca3c3098">C</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-ca3fa0a2"><p class="cl-ca3f8b26"><span class="cl-ca3c3098">-</span></p></td><td class="cl-ca3fa0a3"><p class="cl-ca3f8b26"><span class="cl-ca3c30a2">1.00</span></p></td><td class="cl-ca3fa0a3"><p class="cl-ca3f8b26"><span class="cl-ca3c30a2">0.47</span></p></td><td class="cl-ca3fa0a3"><p class="cl-ca3f8b26"><span class="cl-ca3c30a2">0.37</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ca3fa0a4"><p class="cl-ca3f8b26"><span class="cl-ca3c3098">A</span></p></td><td class="cl-ca3fa0a5"><p class="cl-ca3f8b26"><span class="cl-ca3c30a2">0.47</span></p></td><td class="cl-ca3fa0a5"><p class="cl-ca3f8b26"><span class="cl-ca3c30a2">7.84</span></p></td><td class="cl-ca3fa0a5"><p class="cl-ca3f8b26"><span class="cl-ca3c30a2">4.12</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ca3fa0a4"><p class="cl-ca3f8b26"><span class="cl-ca3c3098">C</span></p></td><td class="cl-ca3fa0a5"><p class="cl-ca3f8b26"><span class="cl-ca3c30a2">0.37</span></p></td><td class="cl-ca3fa0a5"><p class="cl-ca3f8b26"><span class="cl-ca3c30a2">4.12</span></p></td><td class="cl-ca3fa0a5"><p class="cl-ca3f8b26"><span class="cl-ca3c30a2">61.89</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ca3fa0a4"><p class="cl-ca3f8b26"><span class="cl-ca3c3098">C</span></p></td><td class="cl-ca3fa0a5"><p class="cl-ca3f8b26"><span class="cl-ca3c30a2">0.29</span></p></td><td class="cl-ca3fa0a5"><p class="cl-ca3f8b26"><span class="cl-ca3c30a2">3.37</span></p></td><td class="cl-ca3fa0a5"><p class="cl-ca3f8b26"><span class="cl-ca3c30a2">61.90</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="6954b164-e92b-4733-bea5-79cf395f075f"></div>
 <script>
-var dest = document.getElementById("a3808990-4201-47b2-935b-33bf98d0c4f1");
-var template = document.getElementById("0ff5de6e-7900-4584-a799-0014f172ccf7");
-var caption = template.content.querySelector("caption");
-if(caption) {
-  caption.style.cssText = "display:block;text-align:center;";
-  var newcapt = document.createElement("p");
-  newcapt.appendChild(caption)
-  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
-}
+var dest = document.getElementById("6954b164-e92b-4733-bea5-79cf395f075f");
+var template = document.getElementById("3696f7a5-6f48-4b77-830e-4629808d1b09");
 var fantome = dest.attachShadow({mode: 'open'});
 var templateContent = template.content;
 fantome.appendChild(templateContent);
@@ -711,8 +698,11 @@ fantome.appendChild(templateContent);
 </div>
 <div id="exercise-3" class="section level1">
 <h1>Exercise 3</h1>
-<p>The partition function of the reverse sequences <span class="math inline">\(x^* = CA\)</span> and <span class="math inline">\(y^* = CCA\)</span> is given in the matrix <span class="math inline">\(Z^*\)</span>:</p>
-<template id="4426560b-19fe-47b8-a16c-2982a81b64b8"><style>
+<p>The partition function of the reverse sequences <span
+class="math inline">\(x^* = CA\)</span> and <span
+class="math inline">\(y^* = CCA\)</span> is given in the matrix <span
+class="math inline">\(Z^*\)</span>:</p>
+<template id="cd2815fc-3dcd-4855-ac86-159b7981c701"><style>
 .tabwid table{
   border-spacing:0px !important;
   border-collapse:collapse;
@@ -720,10 +710,11 @@ fantome.appendChild(templateContent);
   margin-left:auto;
   margin-right:auto;
   border-width: 0;
-  display: table;
-  margin-top: 1.275em;
-  margin-bottom: 1.275em;
   border-color: transparent;
+  caption-side: top;
+}
+.tabwid-caption-bottom table{
+  caption-side: bottom;
 }
 .tabwid_left table{
   margin-left:0;
@@ -731,7 +722,7 @@ fantome.appendChild(templateContent);
 .tabwid_right table{
   margin-right:0;
 }
-.tabwid td {
+.tabwid td, .tabwid th {
     padding: 0;
 }
 .tabwid a {
@@ -749,19 +740,11 @@ background-color: transparent;
 .katex-display {
     margin: 0 0 !important;
 }
-</style><div class="tabwid"><style>.cl-a049a8ea{}.cl-a043cbaa{font-family:'DejaVu Sans';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a043cbb4{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3.3pt;}.cl-a043cbbe{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-a043cbbf{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a043daf0{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-a0440796{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a04407a0{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a04407a1{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a04407aa{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a04407ab{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a04407ac{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-a049a8ea'>
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-a04407ac"><p class="cl-a043daf0"><span class="cl-a043cbaa">Z</span><span class="cl-a043cbb4">*</span><span class="cl-a043cbbe"></span></p></td><td class="cl-a04407ab"><p class="cl-a043daf0"><span class="cl-a043cbaa">-</span><span class="cl-a043cbb4"></span><span class="cl-a043cbbe"></span></p></td><td class="cl-a04407ab"><p class="cl-a043daf0"><span class="cl-a043cbaa">A</span><span class="cl-a043cbb4"></span><span class="cl-a043cbbe"></span></p></td><td class="cl-a04407ab"><p class="cl-a043daf0"><span class="cl-a043cbaa">C</span><span class="cl-a043cbb4"></span><span class="cl-a043cbbe"></span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-a0440796"><p class="cl-a043daf0"><span class="cl-a043cbaa">-</span></p></td><td class="cl-a04407a0"><p class="cl-a043daf0"><span class="cl-a043cbbf">1.00</span></p></td><td class="cl-a04407a0"><p class="cl-a043daf0"><span class="cl-a043cbbf">0.47</span></p></td><td class="cl-a04407a0"><p class="cl-a043daf0"><span class="cl-a043cbbf">0.37</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a04407aa"><p class="cl-a043daf0"><span class="cl-a043cbaa">A</span></p></td><td class="cl-a04407a1"><p class="cl-a043daf0"><span class="cl-a043cbbf">0.47</span></p></td><td class="cl-a04407a1"><p class="cl-a043daf0"><span class="cl-a043cbbf">7.84</span></p></td><td class="cl-a04407a1"><p class="cl-a043daf0"><span class="cl-a043cbbf">4.12</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a04407aa"><p class="cl-a043daf0"><span class="cl-a043cbaa">C</span></p></td><td class="cl-a04407a1"><p class="cl-a043daf0"><span class="cl-a043cbbf">0.37</span></p></td><td class="cl-a04407a1"><p class="cl-a043daf0"><span class="cl-a043cbbf">7.43</span></p></td><td class="cl-a04407a1"><p class="cl-a043daf0"><span class="cl-a043cbbf">8.45</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a04407aa"><p class="cl-a043daf0"><span class="cl-a043cbaa">C</span></p></td><td class="cl-a04407a1"><p class="cl-a043daf0"><span class="cl-a043cbbf">0.29</span></p></td><td class="cl-a04407a1"><p class="cl-a043daf0"><span class="cl-a043cbbf">4.94</span></p></td><td class="cl-a04407a1"><p class="cl-a043daf0"><span class="cl-a043cbbf">61.90</span></p></td></tr></tbody></table></div></template>
-<div class="flextable-shadow-host" id="87db1bbe-1dbb-40e8-acde-e7571fbadb2e"></div>
+</style><div class="tabwid"><style>.cl-ca637ba8{}.cl-ca5bd592{font-family:'DejaVu Sans';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-ca5bd59c{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3.3pt;}.cl-ca5bd59d{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-ca5bd5a6{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-ca5ef808{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-ca5f0a78{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca5f0a79{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca5f0a82{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca5f0a83{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca5f0a84{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca5f0a8c{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-ca637ba8'><thead><tr style="overflow-wrap:break-word;"><th class="cl-ca5f0a78"><p class="cl-ca5ef808"><span class="cl-ca5bd592">Z</span><span class="cl-ca5bd59c">*</span><span class="cl-ca5bd59d"></span></p></th><th class="cl-ca5f0a79"><p class="cl-ca5ef808"><span class="cl-ca5bd592">-</span><span class="cl-ca5bd59c"></span><span class="cl-ca5bd59d"></span></p></th><th class="cl-ca5f0a79"><p class="cl-ca5ef808"><span class="cl-ca5bd592">A</span><span class="cl-ca5bd59c"></span><span class="cl-ca5bd59d"></span></p></th><th class="cl-ca5f0a79"><p class="cl-ca5ef808"><span class="cl-ca5bd592">C</span><span class="cl-ca5bd59c"></span><span class="cl-ca5bd59d"></span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-ca5f0a82"><p class="cl-ca5ef808"><span class="cl-ca5bd592">-</span></p></td><td class="cl-ca5f0a83"><p class="cl-ca5ef808"><span class="cl-ca5bd5a6">1.00</span></p></td><td class="cl-ca5f0a83"><p class="cl-ca5ef808"><span class="cl-ca5bd5a6">0.47</span></p></td><td class="cl-ca5f0a83"><p class="cl-ca5ef808"><span class="cl-ca5bd5a6">0.37</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ca5f0a84"><p class="cl-ca5ef808"><span class="cl-ca5bd592">A</span></p></td><td class="cl-ca5f0a8c"><p class="cl-ca5ef808"><span class="cl-ca5bd5a6">0.47</span></p></td><td class="cl-ca5f0a8c"><p class="cl-ca5ef808"><span class="cl-ca5bd5a6">7.84</span></p></td><td class="cl-ca5f0a8c"><p class="cl-ca5ef808"><span class="cl-ca5bd5a6">4.12</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ca5f0a84"><p class="cl-ca5ef808"><span class="cl-ca5bd592">C</span></p></td><td class="cl-ca5f0a8c"><p class="cl-ca5ef808"><span class="cl-ca5bd5a6">0.37</span></p></td><td class="cl-ca5f0a8c"><p class="cl-ca5ef808"><span class="cl-ca5bd5a6">7.43</span></p></td><td class="cl-ca5f0a8c"><p class="cl-ca5ef808"><span class="cl-ca5bd5a6">8.45</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ca5f0a84"><p class="cl-ca5ef808"><span class="cl-ca5bd592">C</span></p></td><td class="cl-ca5f0a8c"><p class="cl-ca5ef808"><span class="cl-ca5bd5a6">0.29</span></p></td><td class="cl-ca5f0a8c"><p class="cl-ca5ef808"><span class="cl-ca5bd5a6">4.94</span></p></td><td class="cl-ca5f0a8c"><p class="cl-ca5ef808"><span class="cl-ca5bd5a6">61.90</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="b47ae37e-8cd7-4aa5-9ed8-0f23b64154c1"></div>
 <script>
-var dest = document.getElementById("87db1bbe-1dbb-40e8-acde-e7571fbadb2e");
-var template = document.getElementById("4426560b-19fe-47b8-a16c-2982a81b64b8");
-var caption = template.content.querySelector("caption");
-if(caption) {
-  caption.style.cssText = "display:block;text-align:center;";
-  var newcapt = document.createElement("p");
-  newcapt.appendChild(caption)
-  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
-}
+var dest = document.getElementById("b47ae37e-8cd7-4aa5-9ed8-0f23b64154c1");
+var template = document.getElementById("cd2815fc-3dcd-4855-ac86-159b7981c701");
 var fantome = dest.attachShadow({mode: 'open'});
 var templateContent = template.content;
 fantome.appendChild(templateContent);
@@ -772,19 +755,29 @@ fantome.appendChild(templateContent);
 <div id="question-3a" class="section level5">
 <h5>Question 3A</h5>
 <div class="question">
-<p>Find a mapping from matrix <span class="math inline">\(Z^{*}_{k,l}\)</span> to <span class="math inline">\(Z^{\prime}_{i,j}\)</span>. Which position in matrix <span class="math inline">\(Z^{*}\)</span> corresponds to which position in matrix <span class="math inline">\(Z^{\prime}\)</span>?</p>
+<p>Find a mapping from matrix <span
+class="math inline">\(Z^{*}_{k,l}\)</span> to <span
+class="math inline">\(Z^{\prime}_{i,j}\)</span>. Which position in
+matrix <span class="math inline">\(Z^{*}\)</span> corresponds to which
+position in matrix <span class="math inline">\(Z^{\prime}\)</span>?</p>
 </div>
 </div>
 <div id="solution-3" class="section level5">
 <h5>Solution</h5>
 <div class="answer">
-<p><span class="math inline">\(Z^{\prime}_{i,j}\)</span> is the partition function of the alignment <span class="math inline">\(x_j ... x_{|x|}\)</span> with <span class="math inline">\(y_i ... y_{|y|}\)</span>.</p>
-<p><span class="math inline">\(Z^{*}_{k,l}\)</span> is the partition function of the alignment <span class="math inline">\(x_{|x|} ... x_{|x|-k+1}\)</span> with <span class="math inline">\(y_{|y|}...y_{|y|-l+1}\)</span>.</p>
+<p><span class="math inline">\(Z^{\prime}_{i,j}\)</span> is the
+partition function of the alignment <span class="math inline">\(x_j ...
+x_{|x|}\)</span> with <span class="math inline">\(y_i ...
+y_{|y|}\)</span>.</p>
+<p><span class="math inline">\(Z^{*}_{k,l}\)</span> is the partition
+function of the alignment <span class="math inline">\(x_{|x|} ...
+x_{|x|-k+1}\)</span> with <span
+class="math inline">\(y_{|y|}...y_{|y|-l+1}\)</span>.</p>
 <p><span class="math display">\[\begin{align*}
 j &amp;= |x| -l +1 \Leftrightarrow l = |x| -j +1\\
 i &amp;= |y| -k +1 \Leftrightarrow k = |y| -i +1
 \end{align*}\]</span></p>
-<template id="72a5e914-8e97-4f34-b4c1-caaf6bef72f4"><style>
+<template id="03308c5e-3a11-45c5-8eff-98ea0baf2b4d"><style>
 .tabwid table{
   border-spacing:0px !important;
   border-collapse:collapse;
@@ -792,10 +785,11 @@ i &amp;= |y| -k +1 \Leftrightarrow k = |y| -i +1
   margin-left:auto;
   margin-right:auto;
   border-width: 0;
-  display: table;
-  margin-top: 1.275em;
-  margin-bottom: 1.275em;
   border-color: transparent;
+  caption-side: top;
+}
+.tabwid-caption-bottom table{
+  caption-side: bottom;
 }
 .tabwid_left table{
   margin-left:0;
@@ -803,7 +797,7 @@ i &amp;= |y| -k +1 \Leftrightarrow k = |y| -i +1
 .tabwid_right table{
   margin-right:0;
 }
-.tabwid td {
+.tabwid td, .tabwid th {
     padding: 0;
 }
 .tabwid a {
@@ -821,25 +815,17 @@ background-color: transparent;
 .katex-display {
     margin: 0 0 !important;
 }
-</style><div class="tabwid"><style>.cl-a063b38e{}.cl-a05de148{font-family:'DejaVu Sans';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a05de152{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3.3pt;}.cl-a05de15c{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-a05de15d{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a05df1ce{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-a05e202c{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a05e2036{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a05e2040{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a05e2041{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a05e2042{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a05e204a{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-a063b38e'>
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-a05e204a"><p class="cl-a05df1ce"><span class="cl-a05de148">Z</span><span class="cl-a05de152">*</span><span class="cl-a05de15c"></span></p></td><td class="cl-a05e2042"><p class="cl-a05df1ce"><span class="cl-a05de148">-</span><span class="cl-a05de152"></span><span class="cl-a05de15c"></span></p></td><td class="cl-a05e2042"><p class="cl-a05df1ce"><span class="cl-a05de148">C</span><span class="cl-a05de152"></span><span class="cl-a05de15c"></span></p></td><td class="cl-a05e2042"><p class="cl-a05df1ce"><span class="cl-a05de148">A</span><span class="cl-a05de152"></span><span class="cl-a05de15c"></span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-a05e202c"><p class="cl-a05df1ce"><span class="cl-a05de148">-</span></p></td><td class="cl-a05e2036"><p class="cl-a05df1ce"><span class="cl-a05de15d">(0,0)</span></p></td><td class="cl-a05e2036"><p class="cl-a05df1ce"><span class="cl-a05de15d">(0,1)</span></p></td><td class="cl-a05e2036"><p class="cl-a05df1ce"><span class="cl-a05de15d">(0,2)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a05e2041"><p class="cl-a05df1ce"><span class="cl-a05de148">A</span></p></td><td class="cl-a05e2040"><p class="cl-a05df1ce"><span class="cl-a05de15d">(1,0)</span></p></td><td class="cl-a05e2040"><p class="cl-a05df1ce"><span class="cl-a05de15d">(1,1)</span></p></td><td class="cl-a05e2040"><p class="cl-a05df1ce"><span class="cl-a05de15d">(1,2)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a05e2041"><p class="cl-a05df1ce"><span class="cl-a05de148">C</span></p></td><td class="cl-a05e2040"><p class="cl-a05df1ce"><span class="cl-a05de15d">(2,0)</span></p></td><td class="cl-a05e2040"><p class="cl-a05df1ce"><span class="cl-a05de15d">(2,1)</span></p></td><td class="cl-a05e2040"><p class="cl-a05df1ce"><span class="cl-a05de15d">(2,2)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a05e2041"><p class="cl-a05df1ce"><span class="cl-a05de148">C</span></p></td><td class="cl-a05e2040"><p class="cl-a05df1ce"><span class="cl-a05de15d">(3,0)</span></p></td><td class="cl-a05e2040"><p class="cl-a05df1ce"><span class="cl-a05de15d">(3,1)</span></p></td><td class="cl-a05e2040"><p class="cl-a05df1ce"><span class="cl-a05de15d">(3,2)</span></p></td></tr></tbody></table></div></template>
-<div class="flextable-shadow-host" id="9738f106-3087-4712-9913-649889f5119b"></div>
+</style><div class="tabwid"><style>.cl-ca79a284{}.cl-ca71f0e8{font-family:'DejaVu Sans';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-ca71f0f2{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3.3pt;}.cl-ca71f0fc{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-ca71f0fd{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-ca75b886{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-ca75cb82{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca75cb8c{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca75cb8d{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca75cb96{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca75cb97{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca75cb98{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-ca79a284'><thead><tr style="overflow-wrap:break-word;"><th class="cl-ca75cb82"><p class="cl-ca75b886"><span class="cl-ca71f0e8">Z</span><span class="cl-ca71f0f2">*</span><span class="cl-ca71f0fc"></span></p></th><th class="cl-ca75cb8c"><p class="cl-ca75b886"><span class="cl-ca71f0e8">-</span><span class="cl-ca71f0f2"></span><span class="cl-ca71f0fc"></span></p></th><th class="cl-ca75cb8c"><p class="cl-ca75b886"><span class="cl-ca71f0e8">C</span><span class="cl-ca71f0f2"></span><span class="cl-ca71f0fc"></span></p></th><th class="cl-ca75cb8c"><p class="cl-ca75b886"><span class="cl-ca71f0e8">A</span><span class="cl-ca71f0f2"></span><span class="cl-ca71f0fc"></span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-ca75cb8d"><p class="cl-ca75b886"><span class="cl-ca71f0e8">-</span></p></td><td class="cl-ca75cb96"><p class="cl-ca75b886"><span class="cl-ca71f0fd">(0,0)</span></p></td><td class="cl-ca75cb96"><p class="cl-ca75b886"><span class="cl-ca71f0fd">(0,1)</span></p></td><td class="cl-ca75cb96"><p class="cl-ca75b886"><span class="cl-ca71f0fd">(0,2)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ca75cb97"><p class="cl-ca75b886"><span class="cl-ca71f0e8">A</span></p></td><td class="cl-ca75cb98"><p class="cl-ca75b886"><span class="cl-ca71f0fd">(1,0)</span></p></td><td class="cl-ca75cb98"><p class="cl-ca75b886"><span class="cl-ca71f0fd">(1,1)</span></p></td><td class="cl-ca75cb98"><p class="cl-ca75b886"><span class="cl-ca71f0fd">(1,2)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ca75cb97"><p class="cl-ca75b886"><span class="cl-ca71f0e8">C</span></p></td><td class="cl-ca75cb98"><p class="cl-ca75b886"><span class="cl-ca71f0fd">(2,0)</span></p></td><td class="cl-ca75cb98"><p class="cl-ca75b886"><span class="cl-ca71f0fd">(2,1)</span></p></td><td class="cl-ca75cb98"><p class="cl-ca75b886"><span class="cl-ca71f0fd">(2,2)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ca75cb97"><p class="cl-ca75b886"><span class="cl-ca71f0e8">C</span></p></td><td class="cl-ca75cb98"><p class="cl-ca75b886"><span class="cl-ca71f0fd">(3,0)</span></p></td><td class="cl-ca75cb98"><p class="cl-ca75b886"><span class="cl-ca71f0fd">(3,1)</span></p></td><td class="cl-ca75cb98"><p class="cl-ca75b886"><span class="cl-ca71f0fd">(3,2)</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="105c3430-531c-4f74-a664-d214bc38b285"></div>
 <script>
-var dest = document.getElementById("9738f106-3087-4712-9913-649889f5119b");
-var template = document.getElementById("72a5e914-8e97-4f34-b4c1-caaf6bef72f4");
-var caption = template.content.querySelector("caption");
-if(caption) {
-  caption.style.cssText = "display:block;text-align:center;";
-  var newcapt = document.createElement("p");
-  newcapt.appendChild(caption)
-  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
-}
+var dest = document.getElementById("105c3430-531c-4f74-a664-d214bc38b285");
+var template = document.getElementById("03308c5e-3a11-45c5-8eff-98ea0baf2b4d");
 var fantome = dest.attachShadow({mode: 'open'});
 var templateContent = template.content;
 fantome.appendChild(templateContent);
 </script>
 
-<template id="dea28f7a-7ba1-44bc-a01c-02b1e9e72781"><style>
+<template id="8079140c-412c-4e2a-a010-dc1a6b881e03"><style>
 .tabwid table{
   border-spacing:0px !important;
   border-collapse:collapse;
@@ -847,10 +833,11 @@ fantome.appendChild(templateContent);
   margin-left:auto;
   margin-right:auto;
   border-width: 0;
-  display: table;
-  margin-top: 1.275em;
-  margin-bottom: 1.275em;
   border-color: transparent;
+  caption-side: top;
+}
+.tabwid-caption-bottom table{
+  caption-side: bottom;
 }
 .tabwid_left table{
   margin-left:0;
@@ -858,7 +845,7 @@ fantome.appendChild(templateContent);
 .tabwid_right table{
   margin-right:0;
 }
-.tabwid td {
+.tabwid td, .tabwid th {
     padding: 0;
 }
 .tabwid a {
@@ -876,19 +863,11 @@ background-color: transparent;
 .katex-display {
     margin: 0 0 !important;
 }
-</style><div class="tabwid"><style>.cl-a07a602a{}.cl-a0736694{font-family:'DejaVu Sans';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a073669e{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3.3pt;}.cl-a07366a8{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-a07366a9{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a07376d4{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-a073a5dc{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a073a5e6{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a073a5e7{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a073a5e8{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a073a5e9{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a073a5f0{width:56.7pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-a07a602a'>
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-a073a5f0"><p class="cl-a07376d4"><span class="cl-a0736694">Z</span><span class="cl-a073669e">'</span><span class="cl-a07366a8"></span></p></td><td class="cl-a073a5e9"><p class="cl-a07376d4"><span class="cl-a0736694">-</span><span class="cl-a073669e"></span><span class="cl-a07366a8"></span></p></td><td class="cl-a073a5e9"><p class="cl-a07376d4"><span class="cl-a0736694">A</span><span class="cl-a073669e"></span><span class="cl-a07366a8"></span></p></td><td class="cl-a073a5e9"><p class="cl-a07376d4"><span class="cl-a0736694">C</span><span class="cl-a073669e"></span><span class="cl-a07366a8"></span></p></td><td class="cl-a073a5e9"><p class="cl-a07376d4"><span class="cl-a0736694">-</span><span class="cl-a073669e"></span><span class="cl-a07366a8"></span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-a073a5e6"><p class="cl-a07376d4"><span class="cl-a0736694">-</span></p></td><td class="cl-a073a5dc"><p class="cl-a07376d4"><span class="cl-a07366a9">(0,0)</span></p></td><td class="cl-a073a5dc"><p class="cl-a07376d4"><span class="cl-a07366a9">(0,1)</span></p></td><td class="cl-a073a5dc"><p class="cl-a07376d4"><span class="cl-a07366a9">(0,2)</span></p></td><td class="cl-a073a5dc"><p class="cl-a07376d4"><span class="cl-a07366a9">(0,3)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a073a5e8"><p class="cl-a07376d4"><span class="cl-a0736694">A</span></p></td><td class="cl-a073a5e7"><p class="cl-a07376d4"><span class="cl-a07366a9">(1,0)</span></p></td><td class="cl-a073a5e7"><p class="cl-a07376d4"><span class="cl-a07366a9">(1,1)</span></p></td><td class="cl-a073a5e7"><p class="cl-a07376d4"><span class="cl-a07366a9">(1,2)</span></p></td><td class="cl-a073a5e7"><p class="cl-a07376d4"><span class="cl-a07366a9">(1,3)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a073a5e8"><p class="cl-a07376d4"><span class="cl-a0736694">C</span></p></td><td class="cl-a073a5e7"><p class="cl-a07376d4"><span class="cl-a07366a9">(2,0)</span></p></td><td class="cl-a073a5e7"><p class="cl-a07376d4"><span class="cl-a07366a9">(2,1)</span></p></td><td class="cl-a073a5e7"><p class="cl-a07376d4"><span class="cl-a07366a9">(2,2)</span></p></td><td class="cl-a073a5e7"><p class="cl-a07376d4"><span class="cl-a07366a9">(2,3)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a073a5e8"><p class="cl-a07376d4"><span class="cl-a0736694">C</span></p></td><td class="cl-a073a5e7"><p class="cl-a07376d4"><span class="cl-a07366a9">(3,0)</span></p></td><td class="cl-a073a5e7"><p class="cl-a07376d4"><span class="cl-a07366a9">(3,1)</span></p></td><td class="cl-a073a5e7"><p class="cl-a07376d4"><span class="cl-a07366a9">(3,2)</span></p></td><td class="cl-a073a5e7"><p class="cl-a07376d4"><span class="cl-a07366a9">(3,3)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a073a5e8"><p class="cl-a07376d4"><span class="cl-a0736694">-</span></p></td><td class="cl-a073a5e7"><p class="cl-a07376d4"><span class="cl-a07366a9">(4,0)</span></p></td><td class="cl-a073a5e7"><p class="cl-a07376d4"><span class="cl-a07366a9">(4,1)</span></p></td><td class="cl-a073a5e7"><p class="cl-a07376d4"><span class="cl-a07366a9">(4,2)</span></p></td><td class="cl-a073a5e7"><p class="cl-a07376d4"><span class="cl-a07366a9">(4,3)</span></p></td></tr></tbody></table></div></template>
-<div class="flextable-shadow-host" id="3b28a927-e86b-4a5c-8862-430117554da5"></div>
+</style><div class="tabwid"><style>.cl-ca8f1f74{}.cl-ca876ae0{font-family:'DejaVu Sans';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-ca876aea{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3.3pt;}.cl-ca876af4{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-ca876af5{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-ca8a9170{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-ca8aa4ee{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca8aa4f8{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca8aa4f9{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca8aa502{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca8aa503{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 2pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca8aa504{width:0.787in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-ca8f1f74'><thead><tr style="overflow-wrap:break-word;"><th class="cl-ca8aa4ee"><p class="cl-ca8a9170"><span class="cl-ca876ae0">Z</span><span class="cl-ca876aea">'</span><span class="cl-ca876af4"></span></p></th><th class="cl-ca8aa4f8"><p class="cl-ca8a9170"><span class="cl-ca876ae0">-</span><span class="cl-ca876aea"></span><span class="cl-ca876af4"></span></p></th><th class="cl-ca8aa4f8"><p class="cl-ca8a9170"><span class="cl-ca876ae0">A</span><span class="cl-ca876aea"></span><span class="cl-ca876af4"></span></p></th><th class="cl-ca8aa4f8"><p class="cl-ca8a9170"><span class="cl-ca876ae0">C</span><span class="cl-ca876aea"></span><span class="cl-ca876af4"></span></p></th><th class="cl-ca8aa4f8"><p class="cl-ca8a9170"><span class="cl-ca876ae0">-</span><span class="cl-ca876aea"></span><span class="cl-ca876af4"></span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-ca8aa4f9"><p class="cl-ca8a9170"><span class="cl-ca876ae0">-</span></p></td><td class="cl-ca8aa502"><p class="cl-ca8a9170"><span class="cl-ca876af5">(0,0)</span></p></td><td class="cl-ca8aa502"><p class="cl-ca8a9170"><span class="cl-ca876af5">(0,1)</span></p></td><td class="cl-ca8aa502"><p class="cl-ca8a9170"><span class="cl-ca876af5">(0,2)</span></p></td><td class="cl-ca8aa502"><p class="cl-ca8a9170"><span class="cl-ca876af5">(0,3)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ca8aa503"><p class="cl-ca8a9170"><span class="cl-ca876ae0">A</span></p></td><td class="cl-ca8aa504"><p class="cl-ca8a9170"><span class="cl-ca876af5">(1,0)</span></p></td><td class="cl-ca8aa504"><p class="cl-ca8a9170"><span class="cl-ca876af5">(1,1)</span></p></td><td class="cl-ca8aa504"><p class="cl-ca8a9170"><span class="cl-ca876af5">(1,2)</span></p></td><td class="cl-ca8aa504"><p class="cl-ca8a9170"><span class="cl-ca876af5">(1,3)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ca8aa503"><p class="cl-ca8a9170"><span class="cl-ca876ae0">C</span></p></td><td class="cl-ca8aa504"><p class="cl-ca8a9170"><span class="cl-ca876af5">(2,0)</span></p></td><td class="cl-ca8aa504"><p class="cl-ca8a9170"><span class="cl-ca876af5">(2,1)</span></p></td><td class="cl-ca8aa504"><p class="cl-ca8a9170"><span class="cl-ca876af5">(2,2)</span></p></td><td class="cl-ca8aa504"><p class="cl-ca8a9170"><span class="cl-ca876af5">(2,3)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ca8aa503"><p class="cl-ca8a9170"><span class="cl-ca876ae0">C</span></p></td><td class="cl-ca8aa504"><p class="cl-ca8a9170"><span class="cl-ca876af5">(3,0)</span></p></td><td class="cl-ca8aa504"><p class="cl-ca8a9170"><span class="cl-ca876af5">(3,1)</span></p></td><td class="cl-ca8aa504"><p class="cl-ca8a9170"><span class="cl-ca876af5">(3,2)</span></p></td><td class="cl-ca8aa504"><p class="cl-ca8a9170"><span class="cl-ca876af5">(3,3)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-ca8aa503"><p class="cl-ca8a9170"><span class="cl-ca876ae0">-</span></p></td><td class="cl-ca8aa504"><p class="cl-ca8a9170"><span class="cl-ca876af5">(4,0)</span></p></td><td class="cl-ca8aa504"><p class="cl-ca8a9170"><span class="cl-ca876af5">(4,1)</span></p></td><td class="cl-ca8aa504"><p class="cl-ca8a9170"><span class="cl-ca876af5">(4,2)</span></p></td><td class="cl-ca8aa504"><p class="cl-ca8a9170"><span class="cl-ca876af5">(4,3)</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="9f84b45e-5e87-42bd-92d7-cad880922ba8"></div>
 <script>
-var dest = document.getElementById("3b28a927-e86b-4a5c-8862-430117554da5");
-var template = document.getElementById("dea28f7a-7ba1-44bc-a01c-02b1e9e72781");
-var caption = template.content.querySelector("caption");
-if(caption) {
-  caption.style.cssText = "display:block;text-align:center;";
-  var newcapt = document.createElement("p");
-  newcapt.appendChild(caption)
-  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
-}
+var dest = document.getElementById("9f84b45e-5e87-42bd-92d7-cad880922ba8");
+var template = document.getElementById("8079140c-412c-4e2a-a010-dc1a6b881e03");
 var fantome = dest.attachShadow({mode: 'open'});
 var templateContent = template.content;
 fantome.appendChild(templateContent);
@@ -906,14 +885,23 @@ fantome.appendChild(templateContent);
 <div id="question-3b" class="section level5">
 <h5>Question 3B</h5>
 <div class="question">
-<p>Use <span class="math inline">\(Z,Z^*\)</span> and the mapping from <span class="math inline">\(Z^*\)</span> to <span class="math inline">\(Z^\prime\)</span> to compute the probability of the alignment edges <span class="math inline">\((1,1)\)</span>, <span class="math inline">\((2,2)\)</span>, <span class="math inline">\((3,1)\)</span> and <span class="math inline">\((3,2)\)</span> between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</p>
+<p>Use <span class="math inline">\(Z,Z^*\)</span> and the mapping from
+<span class="math inline">\(Z^*\)</span> to <span
+class="math inline">\(Z^\prime\)</span> to compute the probability of
+the alignment edges <span class="math inline">\((1,1)\)</span>, <span
+class="math inline">\((2,2)\)</span>, <span
+class="math inline">\((3,1)\)</span> and <span
+class="math inline">\((3,2)\)</span> between <span
+class="math inline">\(x\)</span> and <span
+class="math inline">\(y\)</span>.</p>
 </div>
 </div>
 <div id="hint-1-formulae-2" class="section level5">
 <h5>Hint 1: Formulae</h5>
 <div class="answer">
 <p><span class="math display">\[
-P(x_i \sim y_j | x,y) = \frac{Z_{i-1,j-1}\times e^{\frac{\sigma(x_i,y_j)}{T}} \times Z^{\prime}_{i+1,j+1}}{Z(T)}\\
+P(x_i \sim y_j | x,y) = \frac{Z_{i-1,j-1}\times
+e^{\frac{\sigma(x_i,y_j)}{T}} \times Z^{\prime}_{i+1,j+1}}{Z(T)}\\
 Z^M_{i,j} = Z_{i-1,j-1} \times  e^{\frac{\sigma(x_i,y_j)}{T}}
 \]</span></p>
 </div>
@@ -932,21 +920,39 @@ Z^{\prime}_{4,3} &amp;\Longleftrightarrow Z^{\ast}_{0,0}
 <div id="solution-4" class="section level5">
 <h5>Solution</h5>
 <div class="answer">
-<p>Alignment edge <span class="math inline">\((1,1)\)</span>: <span class="math display">\[
-P(x_1 \sim y_1 | x,y) = \frac{Z_{0,0}\times e^{\frac{\sigma(x_1,y_1)}{T}} \times Z^{\prime}_{2,2}}{Z(T)} =\frac{Z_{0,0}\times e^{\frac{\sigma(x_1,y_1)}{T}} \times Z^{\ast}_{2,1}}{Z(T)} = \frac{Z^M_{1,1} \times Z^{\ast}_{2,1}}{Z(T)} = \frac{7.39 \times 7.43}{61.90} = 0.89
-\]</span> Alignment edge <span class="math inline">\((2,2)\)</span>: <span class="math display">\[
-P(x_2 \sim y_2 | x,y) = \frac{Z_{1,1}\times e^{\frac{\sigma(x_2,y_2)}{T}} \times Z^{\prime}_{3,3}}{Z(T)} =\frac{Z_{1,1}\times e^{\frac{\sigma(x_2,y_2)}{T}} \times Z^{\ast}_{1,0}}{Z(T)} = \frac{Z^M_{2,2} \times Z^{\ast}_{1,0}}{Z(T)} = \frac{57.90 \times 0.47}{61.90} = 0.44
-\]</span> Alignment edge <span class="math inline">\((3,1)\)</span>: <span class="math display">\[
-P(x_3 \sim y_1 | x,y) = \frac{Z^M_{3,1} \times Z^{\prime}_{4,2}}{Z(T)} =  \frac{Z^M_{3,1} \times Z^{\ast}_{0,1}}{Z(T)} = \frac{0.14 \times 0.47}{61.90} = 0.001
-\]</span> Alignment edge <span class="math inline">\((3,2)\)</span>: <span class="math display">\[
-P(x_3 \sim y_2 | x,y) = \frac{Z^M_{3,2} \times Z^{\prime}_{4,3}}{Z(T)} =  \frac{Z^M_{3,1} \times Z^{\ast}_{0,0}}{Z(T)} = \frac{30.42 \times 1}{61.90} = 0.49
+<p>Alignment edge <span class="math inline">\((1,1)\)</span>: <span
+class="math display">\[
+P(x_1 \sim y_1 | x,y) = \frac{Z_{0,0}\times
+e^{\frac{\sigma(x_1,y_1)}{T}} \times Z^{\prime}_{2,2}}{Z(T)}
+=\frac{Z_{0,0}\times e^{\frac{\sigma(x_1,y_1)}{T}} \times
+Z^{\ast}_{2,1}}{Z(T)} = \frac{Z^M_{1,1} \times Z^{\ast}_{2,1}}{Z(T)} =
+\frac{7.39 \times 7.43}{61.90} = 0.89
+\]</span> Alignment edge <span class="math inline">\((2,2)\)</span>:
+<span class="math display">\[
+P(x_2 \sim y_2 | x,y) = \frac{Z_{1,1}\times
+e^{\frac{\sigma(x_2,y_2)}{T}} \times Z^{\prime}_{3,3}}{Z(T)}
+=\frac{Z_{1,1}\times e^{\frac{\sigma(x_2,y_2)}{T}} \times
+Z^{\ast}_{1,0}}{Z(T)} = \frac{Z^M_{2,2} \times Z^{\ast}_{1,0}}{Z(T)} =
+\frac{57.90 \times 0.47}{61.90} = 0.44
+\]</span> Alignment edge <span class="math inline">\((3,1)\)</span>:
+<span class="math display">\[
+P(x_3 \sim y_1 | x,y) = \frac{Z^M_{3,1} \times Z^{\prime}_{4,2}}{Z(T)}
+=  \frac{Z^M_{3,1} \times Z^{\ast}_{0,1}}{Z(T)} = \frac{0.14 \times
+0.47}{61.90} = 0.001
+\]</span> Alignment edge <span class="math inline">\((3,2)\)</span>:
+<span class="math display">\[
+P(x_3 \sim y_2 | x,y) = \frac{Z^M_{3,2} \times Z^{\prime}_{4,3}}{Z(T)}
+=  \frac{Z^M_{3,1} \times Z^{\ast}_{0,0}}{Z(T)} = \frac{30.42 \times
+1}{61.90} = 0.49
 \]</span></p>
 </div>
 </div>
 </div>
 <div id="section-9" class="section level4 unnumbered">
 <h4 class="unnumbered"></h4>
-<p>Download: <a href="exercise-sheet-5.pdf" title="Download PDF Version">PDF Version</a> of this page.</p>
+<p>Download:
+<a href="exercise-sheet-5.pdf" title="Download PDF Version">PDF
+Version</a> of this page.</p>
 </div>
 </div>
 

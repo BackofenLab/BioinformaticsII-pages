@@ -13,7 +13,7 @@
 
 <title>Exercise sheet 11: RNA Bioinformatics</title>
 
-<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -182,8 +182,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -191,16 +191,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -377,8 +370,12 @@ div.tocify {
 <hr />
 <div id="exercise-1" class="section level1">
 <h1>Exercise 1</h1>
-<p>RNA secondary structures can be represented using a graph notation, where nodes represent nucleotides and edges encode the molecule’s backbone or intramolecular base pairs between nucleotides. Below, an RNA molecule graph is depicted that encodes base pairs in blue.</p>
-<p>Decide for the following properties whether they are correct or wrong given the RNA secondary structure graph.</p>
+<p>RNA secondary structures can be represented using a graph notation,
+where nodes represent nucleotides and edges encode the molecule’s
+backbone or intramolecular base pairs between nucleotides. Below, an RNA
+molecule graph is depicted that encodes base pairs in blue.</p>
+<p>Decide for the following properties whether they are correct or wrong
+given the RNA secondary structure graph.</p>
 <p><img src="figures/sheet-11/RNA-structure.png" width="40%" style="display: block; margin: auto;" /></p>
 <div id="section" class="section level4 tabset">
 <h4 class="tabset"></h4>
@@ -553,7 +550,8 @@ div.tocify {
 <div id="solution-9" class="section level5">
 <h5>Solution</h5>
 <div class="answer">
-<p>wrong; The minimum loop length for this graph is 3. (number of unpaired bases in loops)</p>
+<p>wrong; The minimum loop length for this graph is 3. (number of
+unpaired bases in loops)</p>
 </div>
 </div>
 </div>
@@ -599,20 +597,24 @@ div.tocify {
 </div>
 <div id="exercise-2" class="section level1">
 <h1>Exercise 2</h1>
-<p>You are given the following dot-bracket string: <strong>(((…)))…((((…))..))</strong></p>
+<p>You are given the following dot-bracket string:
+<strong>(((…)))…((((…))..))</strong></p>
 <div id="section-24" class="section level4 tabset">
 <h4 class="tabset"></h4>
 <div id="question-2a" class="section level5">
 <h5>Question 2A</h5>
 <div class="question">
-<p>Draw graph representations of all nested structures that can be encoded by the dot-bracket string. Assume a minimal loop length of 3.</p>
+<p>Draw graph representations of all nested structures that can be
+encoded by the dot-bracket string. Assume a minimal loop length of
+3.</p>
 </div>
 </div>
 <div id="solution-12" class="section level5">
 <h5>Solution</h5>
 <div class="answer">
 <p><img src="figures/sheet-11/nested-structure.png" width="50%" style="display: block; margin: auto;" /></p>
-<p>This is the only possible nested structure based on the dot-bracket string given.</p>
+<p>This is the only possible nested structure based on the dot-bracket
+string given.</p>
 </div>
 </div>
 </div>
@@ -624,7 +626,9 @@ div.tocify {
 <div id="question-2b" class="section level5">
 <h5>Question 2B</h5>
 <div class="question">
-<p>Draw a graph representation of one possible crossing structure that can be encoded by the dot-bracket string. Assume a minimal loop length of 3.</p>
+<p>Draw a graph representation of one possible crossing structure that
+can be encoded by the dot-bracket string. Assume a minimal loop length
+of 3.</p>
 </div>
 </div>
 <div id="solution-13" class="section level5">
@@ -632,7 +636,8 @@ div.tocify {
 <div class="answer">
 <p><img src="figures/sheet-11/crossing-structure.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>Dot-bracket string: <strong>(((…)))…[(((…])..))</strong></p>
-<p>There are multiple other possible crossing structures. (e.g. <strong>(((…)))…[((&lt;…])..&gt;)</strong> )</p>
+<p>There are multiple other possible crossing structures.
+(e.g. <strong>(((…)))…[((&lt;…])..&gt;)</strong> )</p>
 </div>
 </div>
 </div>
@@ -642,7 +647,10 @@ div.tocify {
 </div>
 <div id="exercise-3" class="section level1">
 <h1>Exercise 3</h1>
-<p>Given the following partially filled Nussinov matrix <span class="math inline">\(N\)</span> using a minimal loop length <span class="math inline">\(l = 0\)</span>, i.e. neighbored nucleotides are allowed to pair.</p>
+<p>Given the following partially filled Nussinov matrix <span
+class="math inline">\(N\)</span> using a minimal loop length <span
+class="math inline">\(l = 0\)</span>, i.e. neighbored nucleotides are
+allowed to pair.</p>
 <p><img src="figures/sheet-11/nussinov-matrix.png" width="50%" style="display: block; margin: auto;" /></p>
 <div id="section-28" class="section level4 tabset">
 <h4 class="tabset"></h4>
@@ -668,13 +676,15 @@ div.tocify {
 <div id="question-3b" class="section level5">
 <h5>Question 3B</h5>
 <div class="question">
-<p>How many tracebacks exist for the red entry using the original recursion by Nussinov?</p>
+<p>How many tracebacks exist for the red entry using the original
+recursion by Nussinov?</p>
 </div>
 </div>
 <div id="solution-15" class="section level5">
 <h5>Solution</h5>
 <div class="answer">
-<p>There exist two tracebacks for the red entry; pairing with either G.</p>
+<p>There exist two tracebacks for the red entry; pairing with either
+G.</p>
 </div>
 </div>
 </div>
@@ -684,8 +694,13 @@ div.tocify {
 </div>
 <div id="exercise-4" class="section level1">
 <h1>Exercise 4</h1>
-<p>Given any matrix <span class="math inline">\(N\)</span> filled by Nussinov’s algorithm for and RNA sequence <span class="math inline">\(S\)</span> of length <span class="math inline">\(n\)</span>. Discuss which of the following statements are correct or wrong.</p>
-<p>The entry <span class="math inline">\(N_{1,n}\)</span> of the Nussinov matrix encodes …</p>
+<p>Given any matrix <span class="math inline">\(N\)</span> filled by
+Nussinov’s algorithm for and RNA sequence <span
+class="math inline">\(S\)</span> of length <span
+class="math inline">\(n\)</span>. Discuss which of the following
+statements are correct or wrong.</p>
+<p>The entry <span class="math inline">\(N_{1,n}\)</span> of the
+Nussinov matrix encodes …</p>
 <div id="section-32" class="section level4 tabset">
 <h4 class="tabset"></h4>
 <div id="question-4a" class="section level5">
@@ -697,7 +712,8 @@ div.tocify {
 <div id="solution-16" class="section level5">
 <h5>Solution</h5>
 <div class="answer">
-<p>wrong; It only encodes the base pair number for the optimal structure.</p>
+<p>wrong; It only encodes the base pair number for the optimal
+structure.</p>
 </div>
 </div>
 </div>
@@ -727,7 +743,9 @@ div.tocify {
 <div id="question-4c" class="section level5">
 <h5>Question 4C</h5>
 <div class="question">
-<p>… the maximal number of base pairs for sequence <span class="math inline">\(S_1\)</span>..<span class="math inline">\(S_n\)</span>.</p>
+<p>… the maximal number of base pairs for sequence <span
+class="math inline">\(S_1\)</span>..<span
+class="math inline">\(S_n\)</span>.</p>
 </div>
 </div>
 <div id="solution-18" class="section level5">
@@ -787,7 +805,8 @@ div.tocify {
 <div id="solution-21" class="section level5">
 <h5>Solution</h5>
 <div class="answer">
-<p>wrong; Typically there is more than one optimal structure with maximal number of base pairs.</p>
+<p>wrong; Typically there is more than one optimal structure with
+maximal number of base pairs.</p>
 </div>
 </div>
 </div>
@@ -803,16 +822,20 @@ div.tocify {
 <div id="question-5a" class="section level5">
 <h5>Question 5A</h5>
 <div class="question">
-<p>Provide all recursion and initialization details for the following recursion depictions. Note, also ensure a minimal loop length <span class="math inline">\(l\)</span> within your recursions.</p>
+<p>Provide all recursion and initialization details for the following
+recursion depictions. Note, also ensure a minimal loop length <span
+class="math inline">\(l\)</span> within your recursions.</p>
 </div>
 </div>
 <div id="solution-22" class="section level5">
 <h5>Solution</h5>
 <div class="answer">
 <p><span class="math display">\[\begin{align*}
-N_{i,i} = N_{i,i-1} &amp;=&amp; 0 \text{ (no init for $B$ and $D$ needed)}
+N_{i,i} = N_{i,i-1} &amp;=&amp; 0 \text{ (no init for $B$ and $D$
+needed)}
 \\
-\forall_{1\leq i&lt;j\leq n}: N_{i,j} &amp;=&amp; max\left\{ B_{i,j}, D_{i,j} \right\}
+\forall_{1\leq i&lt;j\leq n}: N_{i,j} &amp;=&amp; max\left\{ B_{i,j},
+D_{i,j} \right\}
 \\
 B_{i,j} &amp;=&amp; \begin{cases}
 N_{i+1,j-1}+1 &amp; \text{ if }i+l&lt;j \wedge S_i,S_j\text{ compl.}\\
