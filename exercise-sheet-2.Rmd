@@ -9,14 +9,18 @@ title: "Exercise sheet 2: Hidden Markov models II"
 In a casino they use a fair die most of the time, but occasionally they switch to a loaded die. The loaded die has a probability $0.5$ to show number six and probability $0.1$ for the numbers one to five. Assume that the casino switches from a fair to a loaded die with probability $0.05$ before each roll, and that the probability of switching back is $0.1$. The probability to start a game with the fair die is $0.9$.
 
 
-#### {.tabset}
 
-##### Question 1A
+### 1a)
+
+
 
 ::: {.question data-latex=""}
 Find the probability $P(\mathcal{O}|M)$ for $\mathcal{O}=1662$ and the given HMM using the forward algorithm. 
 ::: 
 
+#### {.tabset}
+
+##### Hide
 
 ##### Hint 1 : Formulae
 
@@ -54,13 +58,16 @@ $$
 
 
 
-#### {.tabset}
 
-##### Question 1B
+### 1b)
 
 ::: {.question data-latex=""}
 Given the result of Question 1A, do you expect a higher probability for the observations $\mathcal{O} = 1666$ and $\mathcal{O} = 1262$?
 ::: 
+
+#### {.tabset}
+
+##### Hide
 
 ##### Hint 1
 
@@ -82,13 +89,15 @@ $$
 
 
 
-#### {.tabset}
-
-##### Question 1C
+### 1c)
 
 ::: {.question data-latex=""}
 Find the most probable path through the HMM that produces the sequence $\mathcal{O} = 1662$.
 ::: 
+
+#### {.tabset}
+
+##### Hide
 
 ##### Hint 1 : Formulae
 
@@ -150,15 +159,18 @@ The following multiple alignment of DNA sequences is given:
                                         **   *
 ```
 
-#### {.tabset}
 
-##### Question 2A
+### 2a)
 
 ::: {.question data-latex=""}
 
 Draw the graphical representation of the profile HMM for the given multiple alignment.
  
 :::
+
+#### {.tabset}
+
+##### Hide
 
 
 ##### Solution
@@ -171,14 +183,17 @@ knitr::include_graphics("figures/sheet-2/sheet2_exercise2.png")
 :::
 #### {-}
 
-#### {.tabset}
 
-##### Question 2B
+### 2b)
 
 ::: {.question data-latex=""}
 
 Find the state sequences that correspond to each row in the alignment. 
 :::
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 
@@ -193,14 +208,17 @@ Find the state sequences that correspond to each row in the alignment.
 :::
 #### {-}
 
-#### {.tabset}
 
-##### Question 2C
+### 2c)
 
 ::: {.question data-latex=""}
 Compute the following emission probabilities with maximum likelihood estimation: $b_{M_1,A}$, $b_{M_1,G}$, $b_{M_1,C}$, $b_{M_1,T}$.
 
 :::
+
+#### {.tabset}
+
+##### Hide
 
 ##### Formulae
 
@@ -229,13 +247,16 @@ $b_{M_1,T}=\frac{1}{4}$
 :::
 #### {-}
 
-#### {.tabset}
 
-##### Question 2D
+### 2d)
 
 ::: {.question data-latex=""}
 Compute the following transition probabilities with maximum likelihood estimation: $a_{M_2,M_3}$, $a_{M_2,I_2}$, $a_{M_2,D_3}$
 :::
+
+#### {.tabset}
+
+##### Hide
 
 ##### Formulae
 
@@ -258,13 +279,16 @@ $a_{M_2,D_3} = \frac{0}{2+1+0} = 0$
 :::
 #### {-}
 
-#### {.tabset}
 
-##### Question 2E
+### 2e)
 
 ::: {.question data-latex=""}
 Repeat the calculations from c) and d) using a pseudo-count of $1$. 
 :::
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 

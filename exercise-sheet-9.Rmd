@@ -13,9 +13,8 @@ title: "Exercise sheet 9: Data Driven Life Sciences"
 
 # Exercise 1
 
-#### {.tabset}
 
-##### Question 1A
+### 1a)
 ::: {.question data-latex=""}
 Arrange the following terms into their correct order in the Illumina sequencing method and describe each of them briefly:
 
@@ -29,6 +28,10 @@ Arrange the following terms into their correct order in the Illumina sequencing 
 
 - fluorescence detection
 ::: 
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 ::: {.answer data-latex=""}
@@ -62,12 +65,11 @@ More information about this topic can be found on the [Illumina Webpage](https:/
 
 # Exercise 2
 
-#### {.tabset}
 ```{r, echo=FALSE, out.width="75%", fig.align='center'}
 knitr::include_graphics("figures/sheet-9/crossword.png")
 ```
 
-##### Question 2A
+### 2a)
 ::: {.question data-latex=""}
 
 **Solve the crossword puzzle!**
@@ -108,6 +110,11 @@ Vertical:
 - 14. Breakthrough sequencing method (abbrev.)
 
 ::: 
+
+#### {.tabset}
+
+##### Hide
+
 ##### Solution
 ::: {.answer data-latex=""}
 ```{r, echo=FALSE, out.width="75%", fig.align='center'}
@@ -120,12 +127,16 @@ knitr::include_graphics("figures/sheet-9/crossword_solved.png")
 
 #### {.tabset}
 
-##### Question 3A
+### 3a)
 ::: {.question data-latex=""}
 You want to determine how many reads $N$ are needed to achieve a coverage depth $C$ of 20X when sequencing reads for *Escherichia coli*.
 
 The length of the reads $L$ is 30nt and the *E. coli* genome $G$ is approximately 4.6 million bases long.
 ::: 
+
+#### {.tabset}
+
+##### Hide
 
 ##### Formula
 ::: {.answer data-latex=""}

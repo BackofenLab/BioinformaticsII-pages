@@ -21,12 +21,15 @@ Decide for the following properties whether they are correct or wrong given the 
 knitr::include_graphics("figures/sheet-11/RNA-structure.png")
 ```
 
-#### {.tabset}
 
-##### Question 1A
+### 1a)
 ::: {.question data-latex=""}
 Position 23 represents the 5'-end
 ::: 
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 ::: {.answer data-latex=""}
@@ -35,12 +38,14 @@ wrong; We always encode in the 5' (=1) to 3' (=n) direction.
 
 #### {-}
 
-#### {.tabset}
-
-##### Question 1B
+### 1b)
 ::: {.question data-latex=""}
 the graph is invalid
 ::: 
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 ::: {.answer data-latex=""}
@@ -49,12 +54,14 @@ wrong
 
 #### {-}
 
-#### {.tabset}
-
-##### Question 1C
+### 1c)
 ::: {.question data-latex=""}
 contains invalid base pairs
 ::: 
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 ::: {.answer data-latex=""}
@@ -63,12 +70,14 @@ wrong; all base pairs depicted in the graph are valid
 
 #### {-}
 
-#### {.tabset}
-
-##### Question 1D
+### 1d)
 ::: {.question data-latex=""}
 contains a pseudoknot
 ::: 
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 ::: {.answer data-latex=""}
@@ -77,12 +86,14 @@ wrong; There are no pseudoknot structures in this graph.
 
 #### {-}
 
-#### {.tabset}
-
-##### Question 1E
+### 1e)
 ::: {.question data-latex=""}
 non-crossing
-::: 
+:::
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 ::: {.answer data-latex=""}
@@ -91,12 +102,15 @@ correct; There are no pseudoknot structures in this graph.
 
 #### {-}
 
-#### {.tabset}
 
-##### Question 1F
+### 1f)
 ::: {.question data-latex=""}
 nested
 ::: 
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 ::: {.answer data-latex=""}
@@ -105,12 +119,14 @@ correct
 
 #### {-}
 
-#### {.tabset}
-
-##### Question 1G
+### 1g)
 ::: {.question data-latex=""}
 contains base pair (5,12)
 ::: 
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 ::: {.answer data-latex=""}
@@ -119,13 +135,15 @@ wrong; Position 5 is unpaired.
 
 #### {-}
 
-#### {.tabset}
-
-##### Question 1H
+### 1h)
 ::: {.question data-latex=""}
 contains base pair (4,13)
 ::: 
 
+#### {.tabset}
+
+##### Hide
+
 ##### Solution
 ::: {.answer data-latex=""}
 correct
@@ -133,13 +151,15 @@ correct
 
 #### {-}
 
-#### {.tabset}
-
-##### Question 1I
+### 1i)
 ::: {.question data-latex=""}
 base pair (1,10) would be crossing
 ::: 
 
+#### {.tabset}
+
+##### Hide
+
 ##### Solution
 ::: {.answer data-latex=""}
 correct
@@ -147,12 +167,14 @@ correct
 
 #### {-}
 
-#### {.tabset}
-
-##### Question 1J
+### 1j)
 ::: {.question data-latex=""}
 obeys a minimal loop length of 4
 ::: 
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 ::: {.answer data-latex=""}
@@ -161,12 +183,14 @@ wrong; The minimum loop length for this graph is 3. (number of unpaired bases in
 
 #### {-}
 
-#### {.tabset}
-
-##### Question 1K
+### 1k)
 ::: {.question data-latex=""}
 encoded by ((...)).(((((...)).))).
 ::: 
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 ::: {.answer data-latex=""}
@@ -175,12 +199,14 @@ wrong
 
 #### {-}
 
-#### {.tabset}
-
-##### Question 1L
+### 1l)
 ::: {.question data-latex=""}
 encoded by .(((.((...))))).((...))
 ::: 
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 ::: {.answer data-latex=""}
@@ -194,12 +220,14 @@ correct
 
 You are given the following dot-bracket string: **(((...)))...((((...))..))**
 
-#### {.tabset}
-
-##### Question 2A
+### 2a)
 ::: {.question data-latex=""}
 Draw graph representations of all nested structures that can be encoded by the dot-bracket string. Assume a minimal loop length of 3. 
 ::: 
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 ::: {.answer data-latex=""}
@@ -212,12 +240,14 @@ This is the only possible nested structure based on the dot-bracket string given
 
 #### {-}
 
-#### {.tabset}
-
-##### Question 2B
+### 2b)
 ::: {.question data-latex=""}
 Draw a graph representation of one possible crossing structure that can be encoded by the dot-bracket string. Assume a minimal loop length of 3. 
 ::: 
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 ::: {.answer data-latex=""}
@@ -240,12 +270,14 @@ Given the following partially filled Nussinov matrix $N$ using a minimal loop le
 knitr::include_graphics("figures/sheet-11/nussinov-matrix.png")
 ```
 
-#### {.tabset}
-
-##### Question 3A
+### 3a)
 ::: {.question data-latex=""}
 What are the values of the green and red entry?
 ::: 
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 ::: {.answer data-latex=""}
@@ -256,12 +288,15 @@ red: $1$
 
 #### {-}
 
-#### {.tabset}
 
-##### Question 3B
+### 3b)
 ::: {.question data-latex=""}
 How many tracebacks exist for the red entry using the original recursion by Nussinov?
 :::
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 ::: {.answer data-latex=""}
@@ -276,12 +311,14 @@ Given any matrix $N$ filled by Nussinov's algorithm for and RNA sequence $S$ of 
 
 The entry $N_{1,n}$ of the Nussinov matrix encodes ...
 
-#### {.tabset}
-
-##### Question 4A
+### 4a)
 ::: {.question data-latex=""}
 ... the optimal structure.
 :::
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 ::: {.answer data-latex=""}
@@ -290,12 +327,14 @@ wrong; It only encodes the base pair number for the optimal structure.
 
 #### {-}
 
-#### {.tabset}
-
-##### Question 4B
+### 4b)
 ::: {.question data-latex=""}
 ... the minimum free energy (mfe) structure.
 :::
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 ::: {.answer data-latex=""}
@@ -304,12 +343,14 @@ wrong; No energy minimization is done.
 
 #### {-}
 
-#### {.tabset}
-
-##### Question 4C
+### 4c)
 ::: {.question data-latex=""}
 ... the maximal number of base pairs for sequence $S_1$..$S_n$.
 :::
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 ::: {.answer data-latex=""}
@@ -318,12 +359,14 @@ correct
 
 #### {-}
 
-#### {.tabset}
-
-##### Question 4D
+### 4d)
 ::: {.question data-latex=""}
 ... the traceback end.
 :::
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 ::: {.answer data-latex=""}
@@ -332,12 +375,14 @@ wrong; It encodes the traceback start.
 
 #### {-}
 
-#### {.tabset}
-
-##### Question 4E
+### 4e)
 ::: {.question data-latex=""}
 ... the maximal number of base pairs for any structure.
 :::
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 ::: {.answer data-latex=""}
@@ -346,12 +391,14 @@ correct
 
 #### {-}
 
-#### {.tabset}
-
-##### Question 4F
+### 4f)
 ::: {.question data-latex=""}
 ... information for a unique structure.
 :::
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 ::: {.answer data-latex=""}
@@ -366,12 +413,14 @@ wrong; Typically there is more than one optimal structure with maximal number of
 knitr::include_graphics("figures/sheet-11/nussinov-recursion.png")
 ```
 
-#### {.tabset}
-
-##### Question 5A
+### 5a)
 ::: {.question data-latex=""}
 Provide all recursion and initialization details for the following recursion depictions. Note, also ensure a minimal loop length $l$ within your recursions.
 :::
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 ::: {.answer data-latex=""}

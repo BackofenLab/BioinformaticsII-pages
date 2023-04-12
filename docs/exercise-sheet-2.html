@@ -381,16 +381,18 @@ probability <span class="math inline">\(0.05\)</span> before each roll,
 and that the probability of switching back is <span
 class="math inline">\(0.1\)</span>. The probability to start a game with
 the fair die is <span class="math inline">\(0.9\)</span>.</p>
-<div id="section" class="section level4 tabset">
-<h4 class="tabset"></h4>
-<div id="question-1a" class="section level5">
-<h5>Question 1A</h5>
+<div id="a" class="section level3">
+<h3>1a)</h3>
 <div class="question">
 <p>Find the probability <span
 class="math inline">\(P(\mathcal{O}|M)\)</span> for <span
 class="math inline">\(\mathcal{O}=1662\)</span> and the given HMM using
 the forward algorithm.</p>
 </div>
+<div id="section" class="section level4 tabset">
+<h4 class="tabset"></h4>
+<div id="hide" class="section level5">
+<h5>Hide</h5>
 </div>
 <div id="hint-1-formulae" class="section level5">
 <h5>Hint 1 : Formulae</h5>
@@ -439,16 +441,19 @@ P( \mathcal{O}=1662)= \alpha_4(F)+\alpha_4(L) = 0.000693 + 0.000407 =
 <div id="section-1" class="section level4 unnumbered">
 <h4 class="unnumbered"></h4>
 </div>
-<div id="section-2" class="section level4 tabset">
-<h4 class="tabset"></h4>
-<div id="question-1b" class="section level5">
-<h5>Question 1B</h5>
+</div>
+<div id="b" class="section level3">
+<h3>1b)</h3>
 <div class="question">
 <p>Given the result of Question 1A, do you expect a higher probability
 for the observations <span class="math inline">\(\mathcal{O} =
 1666\)</span> and <span class="math inline">\(\mathcal{O} =
 1262\)</span>?</p>
 </div>
+<div id="section-2" class="section level4 tabset">
+<h4 class="tabset"></h4>
+<div id="hide-1" class="section level5">
+<h5>Hide</h5>
 </div>
 <div id="hint-1" class="section level5">
 <h5>Hint 1</h5>
@@ -472,14 +477,17 @@ P(\mathcal{O} = 1666) &gt; P(\mathcal{O} = 1662) &gt; P(\mathcal{O} =
 <div id="section-3" class="section level4 unnumbered">
 <h4 class="unnumbered"></h4>
 </div>
-<div id="section-4" class="section level4 tabset">
-<h4 class="tabset"></h4>
-<div id="question-1c" class="section level5">
-<h5>Question 1C</h5>
+</div>
+<div id="c" class="section level3">
+<h3>1c)</h3>
 <div class="question">
 <p>Find the most probable path through the HMM that produces the
 sequence <span class="math inline">\(\mathcal{O} = 1662\)</span>.</p>
 </div>
+<div id="section-4" class="section level4 tabset">
+<h4 class="tabset"></h4>
+<div id="hide-2" class="section level5">
+<h5>Hide</h5>
 </div>
 <div id="hint-1-formulae-1" class="section level5">
 <h5>Hint 1 : Formulae</h5>
@@ -537,6 +545,7 @@ argmax(F:0.15 \times 0.95, L:0.01 \times 0.1) = F\\
 <hr />
 </div>
 </div>
+</div>
 <div id="exercise-2---profile-hmms" class="section level1">
 <h1>Exercise 2 - Profile HMMs</h1>
 <p>Profile HMMs define a position specific scoring scheme which can be
@@ -547,14 +556,16 @@ used to search databases for homologous sequences.</p>
                                         AG---T
                                         TTGGGT
                                         **   *</code></pre>
-<div id="section-6" class="section level4 tabset">
-<h4 class="tabset"></h4>
-<div id="question-2a" class="section level5">
-<h5>Question 2A</h5>
+<div id="a-1" class="section level3">
+<h3>2a)</h3>
 <div class="question">
 <p>Draw the graphical representation of the profile HMM for the given
 multiple alignment.</p>
 </div>
+<div id="section-6" class="section level4 tabset">
+<h4 class="tabset"></h4>
+<div id="hide-3" class="section level5">
+<h5>Hide</h5>
 </div>
 <div id="solution-3" class="section level5">
 <h5>Solution</h5>
@@ -566,14 +577,17 @@ multiple alignment.</p>
 <div id="section-7" class="section level4 unnumbered">
 <h4 class="unnumbered"></h4>
 </div>
-<div id="section-8" class="section level4 tabset">
-<h4 class="tabset"></h4>
-<div id="question-2b" class="section level5">
-<h5>Question 2B</h5>
+</div>
+<div id="b-1" class="section level3">
+<h3>2b)</h3>
 <div class="question">
 <p>Find the state sequences that correspond to each row in the
 alignment.</p>
 </div>
+<div id="section-8" class="section level4 tabset">
+<h4 class="tabset"></h4>
+<div id="hide-4" class="section level5">
+<h5>Hide</h5>
 </div>
 <div id="solution-4" class="section level5">
 <h5>Solution</h5>
@@ -588,10 +602,9 @@ alignment.</p>
 <div id="section-9" class="section level4 unnumbered">
 <h4 class="unnumbered"></h4>
 </div>
-<div id="section-10" class="section level4 tabset">
-<h4 class="tabset"></h4>
-<div id="question-2c" class="section level5">
-<h5>Question 2C</h5>
+</div>
+<div id="c-1" class="section level3">
+<h3>2c)</h3>
 <div class="question">
 <p>Compute the following emission probabilities with maximum likelihood
 estimation: <span class="math inline">\(b_{M_1,A}\)</span>, <span
@@ -599,6 +612,10 @@ class="math inline">\(b_{M_1,G}\)</span>, <span
 class="math inline">\(b_{M_1,C}\)</span>, <span
 class="math inline">\(b_{M_1,T}\)</span>.</p>
 </div>
+<div id="section-10" class="section level4 tabset">
+<h4 class="tabset"></h4>
+<div id="hide-5" class="section level5">
+<h5>Hide</h5>
 </div>
 <div id="formulae" class="section level5">
 <h5>Formulae</h5>
@@ -627,16 +644,19 @@ in state } i | \mathcal{O}, M]}{E[\text{number of times in state } i |
 <div id="section-11" class="section level4 unnumbered">
 <h4 class="unnumbered"></h4>
 </div>
-<div id="section-12" class="section level4 tabset">
-<h4 class="tabset"></h4>
-<div id="question-2d" class="section level5">
-<h5>Question 2D</h5>
+</div>
+<div id="d" class="section level3">
+<h3>2d)</h3>
 <div class="question">
 <p>Compute the following transition probabilities with maximum
 likelihood estimation: <span class="math inline">\(a_{M_2,M_3}\)</span>,
 <span class="math inline">\(a_{M_2,I_2}\)</span>, <span
 class="math inline">\(a_{M_2,D_3}\)</span></p>
 </div>
+<div id="section-12" class="section level4 tabset">
+<h4 class="tabset"></h4>
+<div id="hide-6" class="section level5">
+<h5>Hide</h5>
 </div>
 <div id="formulae-1" class="section level5">
 <h5>Formulae</h5>
@@ -663,14 +683,17 @@ M]}
 <div id="section-13" class="section level4 unnumbered">
 <h4 class="unnumbered"></h4>
 </div>
-<div id="section-14" class="section level4 tabset">
-<h4 class="tabset"></h4>
-<div id="question-2e" class="section level5">
-<h5>Question 2E</h5>
+</div>
+<div id="e" class="section level3">
+<h3>2e)</h3>
 <div class="question">
 <p>Repeat the calculations from c) and d) using a pseudo-count of <span
 class="math inline">\(1\)</span>.</p>
 </div>
+<div id="section-14" class="section level4 tabset">
+<h4 class="tabset"></h4>
+<div id="hide-7" class="section level5">
+<h5>Hide</h5>
 </div>
 <div id="solution-7" class="section level5">
 <h5>Solution</h5>
@@ -694,6 +717,7 @@ class="math inline">\(b_{M_1,T}=\frac{1+1}{4+4}=\frac{1}{4}\)</span></p>
 </div>
 <div id="section-15" class="section level4 unnumbered">
 <h4 class="unnumbered"></h4>
+</div>
 </div>
 </div>
 

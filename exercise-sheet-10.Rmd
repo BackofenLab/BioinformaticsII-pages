@@ -13,12 +13,14 @@ title: "Exercise sheet 10: Introduction to Mapping"
 
 # Exercise 1
 
-#### {.tabset}
-
-##### Question 1A
+### 1a)
 ::: {.question data-latex=""}
 Extract the Burrows-Wheeler Transform B(S) of $S = TGGTGGTTGA\$$.
 ::: 
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 ::: {.answer data-latex=""}
@@ -32,13 +34,15 @@ knitr::include_graphics("figures/sheet-10/exercise_01.png")
 ::: 
 #### {-}
 
-#### {.tabset}
 
-##### Question 1B
+### 1b)
 ::: {.question data-latex=""}
 Invert the Burrows-Wheeler-Transform $B(S) = TCAACT\$AA$ to obtain S.
 ::: 
 
+#### {.tabset}
+
+##### Hide
 
 ##### Hint 1
 ::: {.answer data-latex=""}
@@ -83,12 +87,14 @@ knitr::include_graphics("figures/sheet-10/exercise_01_details.png")
 
 #### {-}
 
-#### {.tabset}
-
-##### Question 1C
+### 1c)
 ::: {.question data-latex=""}
 Search for $CAT$ in $B(S) = TCAACT\$AA$.
 ::: 
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 ::: {.answer data-latex=""}
@@ -100,7 +106,6 @@ knitr::include_graphics("figures/sheet-10/exercise_01C.png")
 
 # Exercise 2
 
-#### {.tabset}
 ::: {.question data-latex=""}
 Read the publication on the bwa-mem aligner at https://arxiv.org/abs/1303.3997 and pay
 particular attention to the re-seeding and chaining features of the algorithm. Now consider a read
@@ -109,22 +114,29 @@ explain step-by-step how re-seeding and chaining let bwa-mem let recover the cor
 of $R$ to $T$.
 ::: 
 
-##### Question 2A
+### 2a)
 ::: {.question data-latex=""}
 What are the original SMEMs that get generated?
 ::: 
+
+#### {.tabset}
+
+##### Hide
+
 ##### Solution
 ::: {.question data-latex=""}
 The original MEMs are CCCCG and GTTTT.
 ::: 
 #### {-}
 
-#### {.tabset}
-
-##### Question 2B
+### 2b)
 ::: {.question data-latex=""}
 Would these SMEMs lead to discovery of the best possible alignment?
 ::: 
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 ::: {.answer data-latex=""}
@@ -134,13 +146,15 @@ CATTTT), therefore we need to reseed.
 ::: 
 #### {-}
 
-#### {.tabset}
-
-##### Question 2C
+### 2c)
 ::: {.question data-latex=""}
 Which shortened new SMEMs are discovered with re-seeding (assume re-seeding gets perfor-
 med despite the below-threshold length of the SMEMs)?
 ::: 
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 ::: {.answer data-latex=""}
@@ -149,12 +163,14 @@ Re-seeding around the central base of each MEM leads to discovery of CCCC and TT
 ::: 
 #### {-}
 
-#### {.tabset}
-
-##### Question 2D
+### 2d)
 ::: {.question data-latex=""}
 What is the effect of chaining of colinear seeds?
 ::: 
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 ::: {.answer data-latex=""}

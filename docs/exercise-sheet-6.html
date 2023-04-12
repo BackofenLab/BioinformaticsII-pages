@@ -374,11 +374,13 @@ div.tocify {
 href="http://blast.ncbi.nlm.nih.gov/Blast.cgi">BLAST web server</a> to
 find out about the gene that belongs to this acccession number (choose
 nucleotide blast, and the database RefSeq RNA).</p>
+<div id="a" class="section level3">
+<h3>1a)</h3>
+<p>Which gene is it, and in which organism?</p>
 <div id="section" class="section level4 tabset">
 <h4 class="tabset"></h4>
-<div id="question-1a" class="section level5">
-<h5>Question 1A</h5>
-<p>Which gene is it, and in which organism?</p>
+<div id="hide" class="section level5">
+<h5>Hide</h5>
 </div>
 <div id="solution" class="section level5">
 <h5>Solution</h5>
@@ -389,11 +391,14 @@ nucleotide blast, and the database RefSeq RNA).</p>
 <div id="section-1" class="section level4 unnumbered">
 <h4 class="unnumbered"></h4>
 </div>
+</div>
+<div id="b" class="section level3">
+<h3>1b)</h3>
+<p>Which other organisms does it seem to be highly conserved in?</p>
 <div id="section-2" class="section level4 tabset">
 <h4 class="tabset"></h4>
-<div id="question-1b" class="section level5">
-<h5>Question 1B</h5>
-<p>Which other organisms does it seem to be highly conserved in?</p>
+<div id="hide-1" class="section level5">
+<h5>Hide</h5>
 </div>
 <div id="solution-1" class="section level5">
 <h5>Solution</h5>
@@ -412,17 +417,20 @@ nucleotide blast, and the database RefSeq RNA).</p>
 <hr />
 </div>
 </div>
+</div>
 <div id="exercise-2" class="section level1">
 <h1>Exercise 2</h1>
 <p>We wish to find sequences related to a query sequence of 28 residues
 in a database of 1 billon residues. Since this sequence belongs to a
 highly conserved gene family, we decide to use the PAM30 matrix.</p>
-<div id="section-4" class="section level4 tabset">
-<h4 class="tabset"></h4>
-<div id="question-2a" class="section level5">
-<h5>Question 2A</h5>
+<div id="a-1" class="section level3">
+<h3>2a)</h3>
 <p>Does this query sequence provide enough information to find
 significant matches?</p>
+<div id="section-4" class="section level4 tabset">
+<h4 class="tabset"></h4>
+<div id="hide-2" class="section level5">
+<h5>Hide</h5>
 </div>
 <div id="hint-1-scoring-matrices" class="section level5">
 <h5>Hint 1: scoring matrices</h5>
@@ -452,17 +460,19 @@ length is 14 residues.</p>
 </div>
 <div id="section-5" class="section level4 unnumbered">
 <h4 class="unnumbered"></h4>
-<hr />
 </div>
-<div id="section-6" class="section level4 tabset">
-<h4 class="tabset"></h4>
-<div id="question-2b" class="section level5">
-<h5>Question 2B</h5>
+</div>
+<div id="b-1" class="section level3">
+<h3>2b)</h3>
 <p>Our supervisor has asked us to find homologous sequences of a gene
 which belongs to a highly diverged gene family. In that case, we decide
 to use the PAM250 matrix, since it provides the best sensitivity. What
 are the implications of using PAM250 instead of PAM30, assuming that the
 query has a similar size?</p>
+<div id="section-6" class="section level4 tabset">
+<h4 class="tabset"></h4>
+<div id="hide-3" class="section level5">
+<h5>Hide</h5>
 </div>
 <div id="solution-3" class="section level5">
 <h5>Solution</h5>
@@ -488,6 +498,7 @@ database.</p>
 <hr />
 </div>
 </div>
+</div>
 <div id="exercise-3" class="section level1">
 <h1>Exercise 3</h1>
 <p>You are given a nucleotide query sequence <span
@@ -499,12 +510,14 @@ class="math inline">\(\texttt{ATAAAACGGGGGG}\)</span>. The word-size
 that assigns a score of <span class="math inline">\(2\)</span> for a
 match and a score of <span class="math inline">\(-1\)</span> for a
 mismatch.</p>
-<div id="section-8" class="section level4 tabset">
-<h4 class="tabset"></h4>
-<div id="question-3a" class="section level5">
-<h5>Question 3A</h5>
+<div id="a-2" class="section level3">
+<h3>3a)</h3>
 <p>Generate all <span class="math inline">\(k\)</span>-length words of
 the query sequence.</p>
+<div id="section-8" class="section level4 tabset">
+<h4 class="tabset"></h4>
+<div id="hide-4" class="section level5">
+<h5>Hide</h5>
 </div>
 <div id="solution-4" class="section level5">
 <h5>Solution</h5>
@@ -517,15 +530,17 @@ the query sequence.</p>
 </div>
 <div id="section-9" class="section level4 unnumbered">
 <h4 class="unnumbered"></h4>
-<hr />
 </div>
-<div id="section-10" class="section level4 tabset">
-<h4 class="tabset"></h4>
-<div id="question-3b" class="section level5">
-<h5>Question 3B</h5>
+</div>
+<div id="b-2" class="section level3">
+<h3>3b)</h3>
 <p>List all possible words for the first <span
 class="math inline">\(k\)</span>-length word (AT) that have a score of
 at least <span class="math inline">\(T_1=1\)</span>.</p>
+<div id="section-10" class="section level4 tabset">
+<h4 class="tabset"></h4>
+<div id="hide-5" class="section level5">
+<h5>Hide</h5>
 </div>
 <div id="solution-5" class="section level5">
 <h5>Solution</h5>
@@ -542,14 +557,16 @@ at least <span class="math inline">\(T_1=1\)</span>.</p>
 </div>
 <div id="section-11" class="section level4 unnumbered">
 <h4 class="unnumbered"></h4>
-<hr />
 </div>
-<div id="section-12" class="section level4 tabset">
-<h4 class="tabset"></h4>
-<div id="question-3c" class="section level5">
-<h5>Question 3C</h5>
+</div>
+<div id="c" class="section level3">
+<h3>3c)</h3>
 <p>Scan the database for exact matches for the words from the question
 3B.</p>
+<div id="section-12" class="section level4 tabset">
+<h4 class="tabset"></h4>
+<div id="hide-6" class="section level5">
+<h5>Hide</h5>
 </div>
 <div id="solution-6" class="section level5">
 <h5>Solution</h5>
@@ -559,15 +576,17 @@ at position 0.</p>
 </div>
 <div id="section-13" class="section level4 unnumbered">
 <h4 class="unnumbered"></h4>
-<hr />
 </div>
-<div id="section-14" class="section level4 tabset">
-<h4 class="tabset"></h4>
-<div id="question-3d" class="section level5">
-<h5>Question 3D</h5>
+</div>
+<div id="d" class="section level3">
+<h3>3d)</h3>
 <p>Extend the exact matches that you found in the question 3C to the
 left/right and report all MSPs with a score greater than <span
 class="math inline">\(4\)</span>.</p>
+<div id="section-14" class="section level4 tabset">
+<h4 class="tabset"></h4>
+<div id="hide-7" class="section level5">
+<h5>Hide</h5>
 </div>
 <div id="solution-7" class="section level5">
 <h5>Solution</h5>
@@ -590,15 +609,17 @@ class="math inline">\(4\)</span>.</p>
                     ||
                     AC     with score 1</code></pre>
 <p>MSPs start in the template at index 0 and 3.</p>
-<hr />
 </div>
 </div>
-<div id="section-15" class="section level4 tabset">
-<h4 class="tabset"></h4>
-<div id="question-3e" class="section level5">
-<h5>Question 3E</h5>
+</div>
+<div id="e" class="section level3">
+<h3>3e)</h3>
 <p>What happens if we vary the parameters <em>k</em> and <span
 class="math inline">\(T_1\)</span>?</p>
+<div id="section-15" class="section level4 tabset">
+<h4 class="tabset"></h4>
+<div id="hide-8" class="section level5">
+<h5>Hide</h5>
 </div>
 <div id="solution-8" class="section level5">
 <h5>Solution</h5>
@@ -615,6 +636,7 @@ sensitive (less hits will be missed)</li>
 <div id="section-16" class="section level4 unnumbered">
 <h4 class="unnumbered"></h4>
 <hr />
+</div>
 </div>
 </div>
 <div id="exercise-4---programming-assignment" class="section level1">

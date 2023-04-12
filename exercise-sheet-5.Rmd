@@ -20,10 +20,8 @@ knitr::include_graphics("figures/sheet-5/bordermatrix.png")
 
 # Exercise 1
 
-#### {.tabset}
 
-##### Question 1A
-
+### 1a)
 ::: {.question data-latex=""}
 Compute the Boltzmann-weighted score for the following alignments:
 
@@ -34,6 +32,9 @@ Compute the Boltzmann-weighted score for the following alignments:
 ```
 :::
 
+#### {.tabset}
+
+##### Hide
 
 ##### Hint 1 : Formulae 
 
@@ -78,13 +79,16 @@ For each alignment you only need to calculate $e^x$ once.
 # Exercise 2
 
 
-#### {.tabset}
 
-##### Question 2A
+### 2a)
 
 ::: {.question data-latex=""}
 Derive the recursion formula for $Z^{I}_{i,j}$. Allow insertions after deletions and vice versa.
 :::
+
+#### {.tabset}
+
+##### Hide
 
 
 ##### Solution 
@@ -99,13 +103,16 @@ $$
 
 ---------------------------------
 
-#### {.tabset}
 
-##### Question 2B
+### 2b)
 
 ::: {.question data-latex=""}
 Compute the partition function Z(T) by dynamic programming for the sequences `x=ACC` and `y=AC`. Allow insertions after deletions and vice versa. In order to simplify the computations, you can round to two digits after the decimal point. 
 :::
+
+#### {.tabset}
+
+##### Hide
 
 
 ##### Hint 1: Formulae 
@@ -224,14 +231,16 @@ index_replace(zstar_ft)
 knitr::kable(zstar)
 ```
 
-#### {.tabset}
 
-##### Question 3A
+### 3a)
 
 ::: {.question data-latex=""}
 Find a mapping from matrix $Z^{*}_{k,l}$ to $Z^{\prime}_{i,j}$. Which position in matrix $Z^{*}$ corresponds to which position in matrix $Z^{\prime}$?
 :::
 
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 
@@ -265,15 +274,16 @@ knitr::kable(zprime_pos)
 #### {-}
 
 ---------------------------------
-#### {.tabset}
 
-##### Question 3B
+### 3b)
 
 ::: {.question data-latex=""}
 Use $Z,Z^*$ and the mapping from $Z^*$ to $Z^\prime$ to compute the probability of the alignment edges $(1,1)$, $(2,2)$, $(3,1)$ and $(3,2)$ between $x$ and $y$.
 :::
 
+#### {.tabset}
 
+##### Hide
 
 ##### Hint 1: Formulae 
 

@@ -16,13 +16,18 @@ title: "Exercise sheet 8: Suffix-Trees"
 You are given the text $T=CAGTAGTAGC$
 
 
-#### {.tabset}
 
-##### Question 1A
+### 1a)
+
 ::: {.question data-latex=""}
 
 Draw the corresponding suffix tree
 ::: 
+
+#### {.tabset}
+
+##### Hide
+
 ##### Solution
 ::: {.answer data-latex=""}
 
@@ -33,13 +38,17 @@ knitr::include_graphics("figures/sheet-7/suffix_tree_1.png")
 
 #### {-}
 
-#### {.tabset}
 
-##### Question 1B
+### 1b)
 ::: {.question data-latex=""}
 
 Describe the steps of a counting query for $P = TAG$
 ::: 
+
+#### {.tabset}
+
+##### Hide
+
 ##### Solution
 ::: {.answer data-latex=""}
 
@@ -51,13 +60,17 @@ Describe the steps of a counting query for $P = TAG$
 #### {-}
 
 
-#### {.tabset}
 
-##### Question 1C
+### 1c)
 ::: {.question data-latex=""}
 
 Describe the steps of a reporting query for $P = AG$
 ::: 
+
+#### {.tabset}
+
+##### Hide
+
 ##### Solution
 ::: {.answer data-latex=""}
 
@@ -70,13 +83,16 @@ Describe the steps of a reporting query for $P = AG$
 
 # Exercise 2
 
-#### {.tabset}
-
-##### Question 2A
+### 2a)
 ::: {.question data-latex=""}
 
 Draw a generalized suffix tree for the sequences $A=CCATG$ and $B=CATG$.
 ::: 
+
+#### {.tabset}
+
+##### Hide
+
 ##### Hint 1 
 ::: {.answer data-latex=""}
 
@@ -108,14 +124,17 @@ knitr::include_graphics("figures/sheet-7/suffix_tree_2.png")
 ::: 
 #### {-}
 
-#### {.tabset}
-
-##### Question 2B
+### 2b)
 ::: {.question data-latex=""}
 
 Find the Maximal Unique Matches of the sequences $A=CCATG$ and $B=CATG$ using 
 the tree from A)
 ::: 
+
+#### {.tabset}
+
+##### Hide
+
 ##### Solution
 ::: {.answer data-latex=""}
 
@@ -127,13 +146,16 @@ it
 
 # Exercise 3
 
-#### {.tabset}
-
-##### Question 3A
+### 3a)
 ::: {.question data-latex=""}
 
 Draw a generalized suffix tree for the sequence $A=ACGCACGCG$.
 ::: 
+
+#### {.tabset}
+
+##### Hide
+
 ##### Solution
 ::: {.answer data-latex=""}
 
@@ -141,13 +163,20 @@ Draw a generalized suffix tree for the sequence $A=ACGCACGCG$.
 knitr::include_graphics("figures/sheet-7/suffix_tree_3.png")
 ```
 ::: 
-#### {.tabset}
 
-##### Question 3B
+#### {-}
+
+
+### 3b)
 ::: {.question data-latex=""}
 
 Find all maximal pairs of length at least 2
 ::: 
+
+#### {.tabset}
+
+##### Hide
+
 ##### Solution
 ::: {.answer data-latex=""}
 
@@ -158,15 +187,17 @@ $CG: (2,8,2), (6,8,2)$
 #### {-}
 
 
-#### {.tabset}
-
-
-##### Question 3C
+### 3c)
 ::: {.question data-latex=""}
 
 Why is $C: (2, 8, 1)$ not a maximal pair?
 
 ::: 
+
+#### {.tabset}
+
+##### Hide
+
 ##### Solution
 ::: {.answer data-latex=""}
 

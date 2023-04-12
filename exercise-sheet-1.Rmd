@@ -14,15 +14,18 @@ knitr::include_graphics("figures/sheet-1/Dice-E1.png")
 A casino uses two kinds of dice: $98\%$ of dice are fair and $2\%$ are loaded. The loaded die has a probability of $0.5$ to show number six and $0.1$ for the numbers one to five.
 
 
-#### {.tabset}
 
-##### Question 1A
+### 1a)
 
 ::: {.question data-latex=""}
 
 When we pick up a die from a table at random, what is the probability of rolling a six?
 
 ::: 
+
+#### {.tabset}
+
+##### Hide
 
 ##### Hint 1 : Formulae
 
@@ -55,9 +58,12 @@ $$
 #### {-}
 
 
+
+### 1b)
+
 #### {.tabset}
 
-##### Question 1B
+##### Hide
 
 ::: {.question data-latex=""}
 
@@ -97,12 +103,16 @@ $$
 
 #### {.tabset}
 
-##### Question 1C
+### 1c)
 
 ::: {.question data-latex=""}
 
 How many sixes in a row would we need to roll to be at least 90\% sure that the die is loaded?
 ::: 
+
+#### {.tabset}
+
+##### Hide
 
 ##### Hint 1 : Formulae
 
@@ -152,14 +162,17 @@ knitr::include_graphics("figures/sheet-1/Dice-E2.png")
 
 In a casino they use a fair die most of the time, but occasionally they switch to a loaded die. The loaded die has a probability $0.5$ to show number six and probability $0.1$ for the numbers one to five. Assume that the casino switches from a fair to a loaded die with probability $0.05$ before each roll, and that the probability of switching back is $0.1$. The probability to start a game with the fair die is $0.9$.
 
-#### {.tabset}
 
-##### Question 2A
+### 2a)
+
 
 ::: {.question data-latex=""}
 Draw a graphical representation of the described Hidden Markov model.
 ::: 
 
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 
@@ -175,12 +188,15 @@ knitr::include_graphics("figures/sheet-1/sheet01-exercise2-a-HMM-solution.png")
 
 #### {.tabset}
 
-##### Question 2B
+### 2b)
 
 ::: {.question data-latex=""}
 Given an observed sequence of outcomes $\mathcal{O} = 3661634$ and two possible state sequences $s_1 = LLLFFFF$ and $s_2 = FFFFFFF$ (where $F$ = Fair and $L$ = Loaded), what are the joint probabilities $P(\mathcal{O}, p_1)$ and $P(\mathcal{O}, p_2)$ in the HMM described above?
 ::: 
 
+#### {.tabset}
+
+##### Hide
 
 ##### Hint 1 : Formulae
 
@@ -217,12 +233,15 @@ P(\mathcal{O},s_2) &= 2.36 \times 10^{-6}
 
 #### {.tabset}
 
-##### Question 2C
+### 2c)
 
 ::: {.question data-latex=""}
 Give an observation $\mathcal{O} = 1662$, how many possible state sequences exist in the described HMM?
 ::: 
 
+#### {.tabset}
+
+##### Hide
 
 ##### Hint 1
 

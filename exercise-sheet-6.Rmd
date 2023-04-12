@@ -17,11 +17,13 @@ You are given accession number NM_000667.3. Use the [BLAST web server](http://bl
 out about the gene that belongs to this acccession number (choose nucleotide blast, and the database RefSeq RNA).
 
 
-#### {.tabset}
-
-##### Question 1A
+### 1a)
 
 Which gene is it, and in which organism?
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 
@@ -31,11 +33,14 @@ Organism: *Homo sapiens* (human)
 
 #### {-}
 
-#### {.tabset}
 
-##### Question 1B
+### 1b)
 
 Which other organisms does it seem to be highly conserved in?
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 
@@ -56,11 +61,14 @@ Many more...
 
 We wish to find sequences related to a query sequence of 28 residues in a database of 1 billon residues. Since this sequence belongs to a highly conserved gene family, we decide to use the PAM30 matrix.
 
-#### {.tabset}
 
-##### Question 2A
+### 2a)
 
 Does this query sequence provide enough information to find significant matches?
+
+#### {.tabset}
+
+##### Hide
 
 ##### Hint 1: scoring matrices
 
@@ -90,13 +98,15 @@ In that case, the query is long enough, since the minimum query length is 14 res
 
 #### {-}
 
----------------------------------
+
+
+### 2b)
+
+Our supervisor has asked us to find homologous sequences of a gene which belongs to a highly diverged gene family. In that case, we decide to use the PAM250 matrix, since it provides the best sensitivity. What are the implications of using PAM250 instead of PAM30, assuming that the query has a similar size?
 
 #### {.tabset}
 
-##### Question 2B
-
-Our supervisor has asked us to find homologous sequences of a gene which belongs to a highly diverged gene family. In that case, we decide to use the PAM250 matrix, since it provides the best sensitivity. What are the implications of using PAM250 instead of PAM30, assuming that the query has a similar size?
+##### Hide
 
 ##### Solution
 
@@ -118,11 +128,14 @@ Since the shortest alignment for which significance can be reliably is greater t
 
 You are given a nucleotide query sequence $q$ =  $\texttt{ATAC}$, and a nucleotide database sequence $s$ = $\texttt{ATAAAACGGGGGG}$. The word-size $k=2$. Use a simple scoring scheme that assigns a score of $2$ for a match and a score of $-1$ for a mismatch.
 
-#### {.tabset}
 
-##### Question 3A
+### 3a)
 
 Generate all $k$-length words of the query sequence.
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 
@@ -132,13 +145,15 @@ Generate all $k$-length words of the query sequence.
 
 #### {-}
 
----------------------------------
+
+
+### 3b)
+
+List all possible words for the first $k$-length word (AT) that have a score of at least $T_1=1$.
 
 #### {.tabset}
 
-##### Question 3B
-
-List all possible words for the first $k$-length word (AT) that have a score of at least $T_1=1$.
+##### Hide
 
 ##### Solution
 
@@ -152,13 +167,15 @@ List all possible words for the first $k$-length word (AT) that have a score of 
 
 #### {-}
 
----------------------------------
+
+
+### 3c)
+
+Scan the database for exact matches for the words from the question 3B.
 
 #### {.tabset}
 
-##### Question 3C
-
-Scan the database for exact matches for the words from the question 3B.
+##### Hide
 
 ##### Solution
 
@@ -166,13 +183,15 @@ Scan the database for exact matches for the words from the question 3B.
 
 #### {-}
 
----------------------------------
+
+
+### 3d)
+
+Extend the exact matches that you found in the question 3C to the left/right and report all MSPs with a score greater than $4$.
 
 #### {.tabset}
 
-##### Question 3D
-
-Extend the exact matches that you found in the question 3C to the left/right and report all MSPs with a score greater than $4$.
+##### Hide
 
 ##### Solution
 
@@ -209,13 +228,14 @@ Pos: 5              AT
 
 MSPs start in the template at index 0 and 3.
 
----------------------------------
+
+### 3e)
+
+What happens if we vary the parameters *k* and $T_1$?
 
 #### {.tabset}
 
-##### Question 3E
-
-What happens if we vary the parameters *k* and $T_1$?
+##### Hide
 
 ##### Solution
 

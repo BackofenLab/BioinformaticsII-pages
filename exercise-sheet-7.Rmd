@@ -29,12 +29,16 @@ We assume that:
 
 For the $K$-mer sizes $K=7$ and $K=14$, respectively. 
 
-#### {.tabset}
 
-##### Question 1A
+### 1a)
+
 ::: {.question data-latex=""}
 What is the probability of having a perfect match between a specific $K$-mer in a homologous region and a $K$-mer in the query sequence?
 :::
+
+#### {.tabset}
+
+##### Hide
 
 ##### Formula
 ::: {.answer data-latex=""}
@@ -55,13 +59,16 @@ $$
 :::
 #### {-}
 
-#### {.tabset}
 
-##### Question 1B
+### 1b)
 
 ::: {.question data-latex=""}
 What is the probability that at least one non-overlapping $K$-mer in the homologous region matches perfectly with the corresponding $K$-mer in the query sequence?
 :::
+
+#### {.tabset}
+
+##### Hide
 
 ##### Formula
 ::: {.answer data-latex=""}
@@ -85,13 +92,16 @@ $$
 
 #### {-}
 
-#### {.tabset}
+### 1c)
 
-##### Question 1C
 
 ::: {.question data-latex=""}
 Calculate the number of False Positives (FPs), i.e. the number of $K$-mers that are expected to match by chance.
 :::
+
+#### {.tabset}
+
+##### Hide
 
 ##### Formula
 ::: {.answer data-latex=""}
@@ -116,13 +126,16 @@ $$
 :::
 #### {-}
 
-#### {.tabset}
-##### Question 1D
+### 1d)
 
 ::: {.question data-latex=""}
 Observe the True positive rate (TPR) and the number of False Positives for the $7$-mers and $14$-mers that you computed in part 1B and 1C.
 What observation do you make?
 :::
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 ::: {.answer data-latex=""}
@@ -140,12 +153,15 @@ In order to increase the True Positive Rate, we want to allow single mismatches 
 For the $K$-mer sizes $K=7$ and $K=14$, respectively.
 
 
-#### {.tabset}
 
-##### Question 2A
+### 2a)
 ::: {.question data-latex=""}
 What is the probability that at least one non-overlapping $K$-mer in the homologous region matches perfectly with the corresponding $K$-mer in the query sequence? Given that we allow one mismatch.
 :::
+
+#### {.tabset}
+
+##### Hide
 
 ##### Formula
 ::: {.answer data-latex=""}
@@ -168,12 +184,15 @@ $$
 :::
 #### {-}
 
-#### {.tabset}
-##### Question 2B
+### 2b)
 ::: {.question data-latex=""}
 Calculate the number of False Positives (FPs), i.e. the number of $K$-mers that are expected to match by chance. Given that we allow one mismatch.
 
 :::
+
+#### {.tabset}
+
+##### Hide
 
 ##### Formula
 ::: {.answer data-latex=""}
@@ -199,11 +218,14 @@ $$
 
 #### {-}
 
-#### {.tabset}
-##### Question 2C
+### 2c)
 ::: {.question data-latex=""}
 What development do we see when observing the TPR and FPs for the updated formulae?
 :::
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 ::: {.answer data-latex=""}
@@ -217,12 +239,15 @@ Finally, we want to reduce the number of False Positive results. To that end, in
 
 For the $K$-mer sizes $K=7$ and $K=14$, respectively.
 
-#### {.tabset}
 
-##### Question 3A
+### 3a)
 ::: {.question data-latex=""}
 What is the probability that at least $2$ non-overlapping $K$-mer in the homologous region match perfectly with corresponding $K$-mers in the query sequence? 
 :::
+
+#### {.tabset}
+
+##### Hide
 
 ##### Formula
 ::: {.answer data-latex=""}
@@ -261,11 +286,14 @@ P &= P_{2} + P_{3}\\
 :::
 #### {-}
 
-#### {.tabset}
-##### Question 3B
+### 3b)
 ::: {.question data-latex=""}
 We can observe a decrease in the TPR. Does it still make sense to use this method? Why?
 :::
+
+#### {.tabset}
+
+##### Hide
 
 ##### Solution
 ::: {.answer data-latex=""}

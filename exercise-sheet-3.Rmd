@@ -32,14 +32,17 @@ a: CACCG_G          a: __CACCGG     b: ACCAAG
 b: _ACCAAG          c: AACACC__     c: AACACC
 ```
 
-#### {.tabset}
 
-##### Question 1A
+### 1a)
 
 ::: {.question data-latex=""}
 
 Calculate the primary library ($L$)
 :::
+
+#### {.tabset}
+
+##### Hide
 
 
 ##### Formulae
@@ -72,14 +75,18 @@ $L^{b,c}_{1,1}=L^{b,c}_{3,3}=L^{b,c}_{4,4}=100*\frac{3}{6}=50$ and all other $L^
 :::
 #### {-}
 
-#### {.tabset}
 
-##### Question 1B
+### 1b)
 
 ::: {.question data-latex=""}
 
 Calculate the extended library ($EL$)
 :::
+
+#### {.tabset}
+
+##### Hide
+
 
 ##### Formulae
 
@@ -137,12 +144,15 @@ $EL^{b,c}_{1,4}=EL^{b,c}_{2,5}=EL^{b,c}_{3,6}=67$
 :::
 #### {-}
 
-#### {.tabset}
-
-##### Question 1C
+### 1c)
 
 
 Realign the sequences $b$ and $c$ using $EL$ for scoring and gap costs and mismatch costs of 0
+
+#### {.tabset}
+
+##### Hide
+
 
 
 ##### Formulae
@@ -206,11 +216,15 @@ c: AACACC___
 #### {-}
 
 
-#### {.tabset}
 
-##### Question 1D
+### 1d)
 
 Do the other alignments $a$-$b$ and $a$-$c$ change? Provide arguments, without calculating new alignments.
+
+#### {.tabset}
+
+##### Hide
+
 
 ##### Solution
 
@@ -219,12 +233,16 @@ current best alignments and can not score higher.
 
 #### {-}
 
-#### {.tabset}
 
 
-##### Question 1E
+### 1e)
 
 Sketch a Guide Tree (either Sketch or Newick format)
+
+#### {.tabset}
+
+##### Hide
+
 
 ##### Solution
 
@@ -232,13 +250,17 @@ Newick: $((a,c),b)$  or $((a,b),c)$ or $((b,c),a)$
 
 #### {-}
 
-#### {.tabset}
 
-##### Question 1F
+### 1f)
 
 Perform a progressive alignment by aligning sequence $b$ to the already existing alignment $A(a, c)$.
 To score a match between $b$ and $A(a, c)$ use the sum $EL^{a,b} + EL^{b,c}$ with the correct indices.
 Show the resulting multiple sequence alignment.
+
+#### {.tabset}
+
+##### Hide
+
 
 ##### Solution
 
