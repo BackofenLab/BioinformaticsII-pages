@@ -262,17 +262,16 @@ There are $16$ possible state sequences.
 
 # Exercise 3 - Programming assignment
 
-::: {#hazard-background .hazard-background }
+For the programming tasks, please follow the instructions given in GitHub Classroom under the following links.
 
-:::
+### 1) Intro and warm-up python programming tasks:
 
-::: {.construction }
-Under Construction
-:::
+[https://classroom.github.com/a/i_FyA5SR](https://classroom.github.com/a/i_FyA5SR)
 
-::: {#hazard-background .hazard-background }
+### 2) Hidden Markov Models tasks:
 
-:::
+[https://classroom.github.com/a/E-FEwES4](https://classroom.github.com/a/E-FEwES4)
+
 
 -------------------------------------------
 
