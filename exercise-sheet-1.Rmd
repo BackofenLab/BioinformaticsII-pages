@@ -246,7 +246,7 @@ Give an observation $\mathcal{O} = 1662$, how many possible state sequences exis
 ##### Hint 1
 
 ::: {.answer data-latex=""}
-The actual observation does not matter in this case because all emission probabilities are $>0$. This there are $2^4$ possible state sequences.
+The actual observation does not matter in this case because all emission probabilities are $>0$. There are $2^4$ possible state sequences.
 ::: 
 
 ##### Solution
