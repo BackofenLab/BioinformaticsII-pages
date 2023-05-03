@@ -191,7 +191,7 @@ knitr::include_graphics("figures/sheet-1/sheet01-exercise2-a-HMM-solution.png")
 ### 2b)
 
 ::: {.question data-latex=""}
-Given an observed sequence of outcomes $\mathcal{O} = 3661634$ and two possible state sequences $s_1 = LLLFFFF$ and $s_2 = FFFFFFF$ (where $F$ = Fair and $L$ = Loaded), what are the joint probabilities $P(\mathcal{O}, p_1)$ and $P(\mathcal{O}, p_2)$ in the HMM described above?
+Given an observed sequence of outcomes $\mathcal{O} = 3661634$ and two possible state sequences $s_1 = LLLFFFF$ and $s_2 = FFFFFFF$ (where $F$ = Fair and $L$ = Loaded), what are the joint probabilities $P(\mathcal{O}, s_1)$ and $P(\mathcal{O}, s_2)$ in the HMM described above?
 ::: 
 
 #### {.tabset}
@@ -202,7 +202,7 @@ Given an observed sequence of outcomes $\mathcal{O} = 3661634$ and two possible 
 
 ::: {.answer data-latex=""}
 $$
-P(\mathcal{O}, p_x) = P(\mathcal{O}|p_x) \times P(p_x)
+P(\mathcal{O}, s_x) = P(\mathcal{O}|s_x) \times P(s_x)
 $$
 ::: 
 
