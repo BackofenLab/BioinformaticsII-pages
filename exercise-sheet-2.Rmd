@@ -36,7 +36,7 @@ Find the probability $P(\mathcal{O}|M)$ for $\mathcal{O}=1662$ and the given HMM
 ::: {.answer data-latex=""}
 \begin{align*}
 \alpha_1(F) =& \pi_F \times b_{F,1} = 0.9 \times \frac{1}{6} = 0.15\\
-\alpha_1(L) =& \pi_F \times b_{L,1} = 0.1 \times 0.1 = 0.01\\\\
+\alpha_1(L) =& \pi_L \times b_{L,1} = 0.1 \times 0.1 = 0.01\\\\
 \alpha_2(F) =& \alpha_{1}(F)\times a_{F,F}\times b_{F,6} + \alpha_{1}(L)\times a_{L,F}\times b_{F,6} =  0.15 \times 0.95 \times \frac{1}{6} + 0.01 \times 0.1 \times \frac{1}{6} = 0.0239167\\
 \alpha_2(L) =& \alpha_{1}(F)\times a_{F,L}\times b_{L,6} + \alpha_{1}(L)\times a_{L,L}\times b_{L,6} =  0.15 \times 0.05 \times 0.5 + 0.01 \times 0.9 \times 0.5 = 0.00825\\
 \alpha_3(F) =& 0.023917 \times 0.95 \times \frac{1}{6} + 0.00825 \times 0.1 \times \frac{1}{6} = 0.00392\\

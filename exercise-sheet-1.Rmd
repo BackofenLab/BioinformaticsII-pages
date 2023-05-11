@@ -210,10 +210,10 @@ $$
 
 ::: {.answer data-latex=""}
 \begin{align*}
-P(s_1)   =& \pi_L \times t_{LL}^2 \times t_{LF} \times t_{FF}^3 = 0.1 \times 0.9^2 \times 0.1 \times (0.95)^3 = 0.0069 \\
-P(s_2)   =& \pi_F \times t_{FF}^6  = 0.9 \times 0.95^6 = 0.6616 \\
-P(\mathcal{O}|s_1) =& e_{L,3} \times e_{L,6}^2 \times e_{F,1} \times e_{F,6} \times e_{F,3} \times e_{F,4} = 0.1 \times 0.5^2 \times (\frac{1}{6})^4 = 1.9 \times 10^{-5} \\
-P(\mathcal{O}|s_2) =& e_{F,3} \times e_{F,6}^2 \times e_{F,1} \times e_{F,6} \times e_{F,3} \times e_{F,4} = (\frac{1}{6})^7 = 3.57 \times 10^{-6} \\
+P(s_1)   =& \pi_L \times a_{LL}^2 \times a_{LF} \times a_{FF}^3 = 0.1 \times 0.9^2 \times 0.1 \times (0.95)^3 = 0.0069 \\
+P(s_2)   =& \pi_F \times a_{FF}^6  = 0.9 \times 0.95^6 = 0.6616 \\
+P(\mathcal{O}|s_1) =& b_{L,3} \times b_{L,6}^2 \times b_{F,1} \times b_{F,6} \times b_{F,3} \times b_{F,4} = 0.1 \times 0.5^2 \times (\frac{1}{6})^4 = 1.9 \times 10^{-5} \\
+P(\mathcal{O}|s_2) =& b_{F,3} \times b_{F,6}^2 \times b_{F,1} \times b_{F,6} \times b_{F,3} \times b_{F,4} = (\frac{1}{6})^7 = 3.57 \times 10^{-6} \\
 P(\mathcal{O},s_1) =& P(\mathcal{O}|s_1) \times P(s_1)= 1.9 \times 10^{-5} \times 0.0069 \\
 P(\mathcal{O},s_2) =& P(\mathcal{O}|s_2) \times P(s_2)= 3.57 \times 10^{-6} \times 0.6616
 \end{align*}

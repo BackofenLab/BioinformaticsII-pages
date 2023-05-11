@@ -13,7 +13,7 @@
 
 <title>Exercise sheet 1: Hidden Markov models</title>
 
-<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -145,11 +145,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -178,8 +182,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -187,16 +191,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -603,14 +600,14 @@ P(\mathcal{O}, s_x) = P(\mathcal{O}|s_x) \times P(s_x)
 <h5>Hint 2 : Calculation Method</h5>
 <div class="answer">
 <p><span class="math display">\[\begin{align*}
-P(s_1)   =&amp; \pi_L \times t_{LL}^2 \times t_{LF} \times t_{FF}^3 =
+P(s_1)   =&amp; \pi_L \times a_{LL}^2 \times a_{LF} \times a_{FF}^3 =
 0.1 \times 0.9^2 \times 0.1 \times (0.95)^3 = 0.0069 \\
-P(s_2)   =&amp; \pi_F \times t_{FF}^6  = 0.9 \times 0.95^6 = 0.6616 \\
-P(\mathcal{O}|s_1) =&amp; e_{L,3} \times e_{L,6}^2 \times e_{F,1} \times
-e_{F,6} \times e_{F,3} \times e_{F,4} = 0.1 \times 0.5^2 \times
+P(s_2)   =&amp; \pi_F \times a_{FF}^6  = 0.9 \times 0.95^6 = 0.6616 \\
+P(\mathcal{O}|s_1) =&amp; b_{L,3} \times b_{L,6}^2 \times b_{F,1} \times
+b_{F,6} \times b_{F,3} \times b_{F,4} = 0.1 \times 0.5^2 \times
 (\frac{1}{6})^4 = 1.9 \times 10^{-5} \\
-P(\mathcal{O}|s_2) =&amp; e_{F,3} \times e_{F,6}^2 \times e_{F,1} \times
-e_{F,6} \times e_{F,3} \times e_{F,4} = (\frac{1}{6})^7 = 3.57 \times
+P(\mathcal{O}|s_2) =&amp; b_{F,3} \times b_{F,6}^2 \times b_{F,1} \times
+b_{F,6} \times b_{F,3} \times b_{F,4} = (\frac{1}{6})^7 = 3.57 \times
 10^{-6} \\
 P(\mathcal{O},s_1) =&amp; P(\mathcal{O}|s_1) \times P(s_1)= 1.9 \times
 10^{-5} \times 0.0069 \\
