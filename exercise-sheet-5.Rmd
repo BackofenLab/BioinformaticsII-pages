@@ -198,7 +198,7 @@ knitr::kable(z)
 
 # Exercise 3
 
-The partition function of the reverse sequences $x^* = CA$ and $y^* = CCA$ is given in the matrix $Z^*$:
+The partition function of the reverse sequences $x^* = CCA$ and $y^* = CA$ is given in the matrix $Z^*$:
 ```{r, include=FALSE}
 zstar <- data.frame(a = c( "-",  "C",   "C",   "A"),
                     b = c(1.00, 0.47,  0.37,  0.29),
@@ -245,13 +245,13 @@ Find a mapping from matrix $Z^{*}_{k,l}$ to $Z^{\prime}_{i,j}$. Which position i
 ##### Solution
 
 ::: {.answer data-latex=""}
-$Z^{\prime}_{i,j}$ is the partition function of the alignment $x_j ... x_{|x|}$ with $y_i ... y_{|y|}$.
+$Z^{\prime}_{i,j}$ is the partition function of the alignment $x_i ... x_{|x|}$ with $y_j ... y_{|y|}$.
 
 $Z^{*}_{k,l}$ is the partition function of the alignment $x_{|x|} ... x_{|x|-k+1}$ with $y_{|y|}...y_{|y|-l+1}$.
 
 \begin{align*}
-j &= |x| -l +1 \Leftrightarrow l = |x| -j +1\\
-i &= |y| -k +1 \Leftrightarrow k = |y| -i +1
+i &= |x| -k +1 \Leftrightarrow k = |x| -i +1\\
+j &= |y| -l +1 \Leftrightarrow l = |y| -j +1
 \end{align*}
 
 ```{r, results="asis", include=knitr::is_html_output(), echo=FALSE}
