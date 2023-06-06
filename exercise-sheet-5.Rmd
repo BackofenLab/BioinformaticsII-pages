@@ -200,13 +200,13 @@ knitr::kable(z)
 
 The partition function of the reverse sequences $x^* = CA$ and $y^* = CCA$ is given in the matrix $Z^*$:
 ```{r, include=FALSE}
-zstar <- data.frame(a = c( "-",  "A",   "C",   "C"),
+zstar <- data.frame(a = c( "-",  "C",   "C",   "A"),
                     b = c(1.00, 0.47,  0.37,  0.29),
                     c = c(0.47, 7.84,  7.43,  4.94),
                     d = c(0.37, 4.12,  8.45, 61.90))
-names(zstar) <- c("Z^{*}", "-", "A", "C")
+names(zstar) <- c("Z^{*}", "-", "C", "A")
 
-zstar_pos <- data.frame(a = c(    "-",     "A",     "C",     "C"),
+zstar_pos <- data.frame(a = c(    "-",     "C",     "C",     "A"),
                         b = c("(0,0)", "(1,0)", "(2,0)", "(3,0)"),
                         c = c("(0,1)", "(1,1)", "(2,1)", "(3,1)"),
                         d = c("(0,2)", "(1,2)", "(2,2)", "(3,2)"))

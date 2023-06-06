@@ -87,7 +87,7 @@ $Prob(path=I_yMMMMMI_y) \approx 3.4 \cdot 10^{-4}$
 
 $Prob(O | path)= \approx 3.3 \cdot 10^{-8}$
 
-$Prob(path,O) \approx 2.4 \cdot 10^{-11}$$
+$Prob(path,O) \approx 2.4 \cdot 10^{-11}$
 :::
 #### {-}
 
