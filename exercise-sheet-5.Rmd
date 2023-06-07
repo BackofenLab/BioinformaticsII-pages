@@ -107,7 +107,7 @@ $$
 ### 2b)
 
 ::: {.question data-latex=""}
-Compute the partition function Z(T) by dynamic programming for the sequences `x=ACC` and `y=AC`. Allow insertions after deletions and vice versa. In order to simplify the computations, you can round to two digits after the decimal point. 
+Compute the partition function Z(T) by dynamic programming for the sequences `x=ACC` and `y=AC`. Allow insertions after deletions and vice versa. In order to simplify the computations, you can round to two digits after the decimal point. Please be aware that we used exact numbers for all calculations and rounded in the end.
 :::
 
 #### {.tabset}
