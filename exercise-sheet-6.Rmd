@@ -248,9 +248,8 @@ What happens if we vary the parameters *k* and $T_1$?
 
 # Exercise 4 - Programming assignment
 
-For the programming tasks, please follow the instructions given in GitHub Classroom under the following links.
+For the programming tasks, please follow the instructions given in GitHub Classroom under the following link.
 
-### 1) Intro and warm-up python programming tasks:
 
 [https://classroom.github.com/a/nxAqfoYx](https://classroom.github.com/a/nxAqfoYx)
 
