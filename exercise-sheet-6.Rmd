@@ -248,17 +248,12 @@ What happens if we vary the parameters *k* and $T_1$?
 
 # Exercise 4 - Programming assignment
 
-::: {#hazard-background .hazard-background }
+For the programming tasks, please follow the instructions given in GitHub Classroom under the following links.
 
-:::
+### 1) Intro and warm-up python programming tasks:
 
-::: {.construction }
-Under Construction
-:::
+[https://classroom.github.com/a/nxAqfoYx](https://classroom.github.com/a/nxAqfoYx)
 
-::: {#hazard-background .hazard-background }
-
-:::
 
 -------------------------------------------
 
