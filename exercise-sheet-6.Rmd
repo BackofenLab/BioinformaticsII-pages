@@ -216,7 +216,7 @@ AT:
 ```
 Pos: 0              ATA
                     |||
-                    AAA     with score 6
+                    ATA     with score 6
 ```
 
 AC:
