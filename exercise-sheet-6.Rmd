@@ -14,7 +14,7 @@ title: "Exercise sheet 6: BLAST"
 # Exercise 1
 
 You are given accession number NM_000667.3. Use the [BLAST web server](http://blast.ncbi.nlm.nih.gov/Blast.cgi) to find
-out about the gene that belongs to this acccession number (choose nucleotide blast, and the database RefSeq RNA).
+out about the gene that belongs to this accession number (choose `nucleotide blast`, and the database `reference RNA sequences (refseq_rna)`).
 
 
 ### 1a)
@@ -57,79 +57,79 @@ Many more...
 ---------------------------------
 
 
-# Exercise 2
+<!-- # Exercise 2 -->
 
-We wish to find sequences related to a query sequence of 28 residues in a database of 1 billon residues. Since this sequence belongs to a highly conserved gene family, we decide to use the PAM30 matrix.
-
-
-### 2a)
-
-Does this query sequence provide enough information to find significant matches?
-
-#### {.tabset}
-
-##### Hide
-
-##### Hint 1: scoring matrices
-
-```{r, echo=FALSE, out.width="100%", fig.align='center'}
-knitr::include_graphics("figures/sheet-6/matrices.png")
-```
-
-##### Hint 2: formulae
-
-::: {.answer data-latex=""}
-$$
-Shortest\ reliable\ alignment = \frac{log2(mn)}{H^{N}}
-\\
-$$
-:::
-
-##### Solution 
-
-::: {.answer data-latex=""}
-$$
-Shortest\ reliable\ alignment = \frac{log2(mn)}{H^{N}} = \frac{log2(28·10^{9})}{2,57}\simeq 14\ residues
-\\
-$$
-:::
-
-In that case, the query is long enough, since the minimum query length is 14 residues.
-
-#### {-}
+<!-- We wish to find sequences related to a query sequence of 28 residues in a database of 1 billon residues. Since this sequence belongs to a highly conserved gene family, we decide to use the PAM30 matrix. -->
 
 
+<!-- ### 2a) -->
 
-### 2b)
+<!-- Does this query sequence provide enough information to find significant matches? -->
 
-Our supervisor has asked us to find homologous sequences of a gene which belongs to a highly diverged gene family. In that case, we decide to use the PAM250 matrix, since it provides the best sensitivity. What are the implications of using PAM250 instead of PAM30, assuming that the query has a similar size?
+<!-- #### {.tabset} -->
 
-#### {.tabset}
+<!-- ##### Hide -->
 
-##### Hide
+<!-- ##### Hint 1: scoring matrices -->
 
-##### Solution
+<!-- ```{r, echo=FALSE, out.width="100%", fig.align='center'} -->
+<!-- knitr::include_graphics("figures/sheet-6/matrices.png") -->
+<!-- ``` -->
 
-The information content of the matrix PAM250 is much lower than PAM30 (0,36 bits/site vs 2,57 bits/site). It has a direct impact in the information contained in the query. So, let's check it the query contains enough information to find significant matches:
+<!-- ##### Hint 2: formulae -->
 
-::: {.answer data-latex=""}
-$$
-Shortest\ reliable\ alignment = \frac{log2(mn)}{H^{N}} = \frac{log2(28·10^{9})}{0,36}\simeq 96\ residues
-$$
-:::
+<!-- ::: {.answer data-latex=""} -->
+<!-- $$ -->
+<!-- Shortest\ reliable\ alignment = \frac{log2(mn)}{H^{N}} -->
+<!-- \\ -->
+<!-- $$ -->
+<!-- ::: -->
 
-Since the shortest alignment for which significance can be reliably is greater than the query size, it implies that a query size of 28 residues doesn't provide enough information. In order to solve the problem, we could try to use a longer query sequence, or use a smaller database.
+<!-- ##### Solution  -->
 
-#### {-}
+<!-- ::: {.answer data-latex=""} -->
+<!-- $$ -->
+<!-- Shortest\ reliable\ alignment = \frac{log2(mn)}{H^{N}} = \frac{log2(28·10^{9})}{2,57}\simeq 14\ residues -->
+<!-- \\ -->
+<!-- $$ -->
+<!-- ::: -->
+
+<!-- In that case, the query is long enough, since the minimum query length is 14 residues. -->
+
+<!-- #### {-} -->
+
+
+
+<!-- ### 2b) -->
+
+<!-- Our supervisor has asked us to find homologous sequences of a gene which belongs to a highly diverged gene family. In that case, we decide to use the PAM250 matrix, since it provides the best sensitivity. What are the implications of using PAM250 instead of PAM30, assuming that the query has a similar size? -->
+
+<!-- #### {.tabset} -->
+
+<!-- ##### Hide -->
+
+<!-- ##### Solution -->
+
+<!-- The information content of the matrix PAM250 is much lower than PAM30 (0,36 bits/site vs 2,57 bits/site). It has a direct impact in the information contained in the query. So, let's check it the query contains enough information to find significant matches: -->
+
+<!-- ::: {.answer data-latex=""} -->
+<!-- $$ -->
+<!-- Shortest\ reliable\ alignment = \frac{log2(mn)}{H^{N}} = \frac{log2(28·10^{9})}{0,36}\simeq 96\ residues -->
+<!-- $$ -->
+<!-- ::: -->
+
+<!-- Since the shortest alignment for which significance can be reliably is greater than the query size, it implies that a query size of 28 residues doesn't provide enough information. In order to solve the problem, we could try to use a longer query sequence, or use a smaller database. -->
+
+<!-- #### {-} -->
 
 ---------------------------------
 
-# Exercise 3
+# Exercise 2
 
 You are given a nucleotide query sequence $q$ =  $\texttt{ATAC}$, and a nucleotide database sequence $s$ = $\texttt{ATAAAACGGGGGG}$. The word-size $k=2$. Use a simple scoring scheme that assigns a score of $2$ for a match and a score of $-1$ for a mismatch.
 
 
-### 3a)
+### 2a)
 
 Generate all $k$-length words of the query sequence.
 
@@ -147,7 +147,7 @@ Generate all $k$-length words of the query sequence.
 
 
 
-### 3b)
+### 2b)
 
 List all possible words for the first $k$-length word (AT) that have a score of at least $T_1=1$.
 
@@ -169,7 +169,7 @@ List all possible words for the first $k$-length word (AT) that have a score of 
 
 
 
-### 3c)
+### 2c)
 
 Scan the database for exact matches for the words from the question 3B.
 
@@ -185,7 +185,7 @@ Scan the database for exact matches for the words from the question 3B.
 
 
 
-### 3d)
+### 2d)
 
 Extend the exact matches that you found in the question 3C to the left/right and report all MSPs with a score greater than $4$.
 
@@ -229,7 +229,7 @@ Pos: 5              AT
 MSPs start in the template at index 0 and 3.
 
 
-### 3e)
+### 2e)
 
 What happens if we vary the parameters *k* and $T_1$?
 
@@ -246,7 +246,7 @@ What happens if we vary the parameters *k* and $T_1$?
 
 ---------------------------------
 
-# Exercise 4 - Programming assignment
+# Exercise 3 - Programming assignment
 
 For the programming tasks, please follow the instructions given in GitHub Classroom under the following link.
 
