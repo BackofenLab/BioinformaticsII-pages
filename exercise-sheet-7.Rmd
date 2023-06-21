@@ -111,6 +111,22 @@ F &= (Q-K+1) \times \bigg(\frac{G}{K}\bigg) \times \bigg(\frac{1}{A}\bigg)^{K},\
 &Q: \text{the query length in bases}\\
 &G: \text{the genome size in bases}
 \end{align*}
+
+:::: {#explaining .warning-box }
+
+::: {#note-exp .warning-header}
+```{r, include=knitr::is_html_output(), echo=FALSE,}
+knitr::include_graphics("figures/warningicon.svg")
+```
+**Warning**
+:::
+::: {#note-exp .note-body}
+
+This only holds under the assumption that all letters in the alphabet are equally likely!
+
+:::
+::::
+
 :::
 
 ##### Solution
@@ -252,7 +268,7 @@ What is the probability that at least $2$ non-overlapping $K$-mer in the homolog
 ##### Formula
 ::: {.answer data-latex=""}
 $$
-p_{n} = (M^{K})^{n} \times (1-M^{K})^{T-n} \times \frac{T!}{n! \times (T-n)!}\\
+P_{n} = (M^{K})^{n} \times (1-M^{K})^{T-n} \times \frac{T!}{n! \times (T-n)!}\\
 \text{with}\quad T= \left\lfloor\frac{H}{K}\right\rfloor\\\\
 P = P_{n} + P_{n+1} + ... + P_{T}
 $$
@@ -294,6 +310,12 @@ We can observe a decrease in the TPR. Does it still make sense to use this metho
 #### {.tabset}
 
 ##### Hide
+
+##### Hint
+
+```{r, echo=FALSE, out.width="100%", fig.align='center'}
+knitr::include_graphics("figures/sheet-7/blat-multiple.png")
+```
 
 ##### Solution
 ::: {.answer data-latex=""}

@@ -497,6 +497,16 @@ F &amp;= (Q-K+1) \times \bigg(\frac{G}{K}\bigg) \times
 &amp;Q: \text{the query length in bases}\\
 &amp;G: \text{the genome size in bases}
 \end{align*}\]</span></p>
+<div id="explaining" class="warning-box">
+<div id="note-exp" class="warning-header">
+<p><img src="figures/warningicon.svg" /><!-- -->
+<strong>Warning</strong></p>
+</div>
+<div id="note-exp" class="note-body">
+<p>This only holds under the assumption that all letters in the alphabet
+are equally likely!</p>
+</div>
+</div>
 </div>
 </div>
 <div id="solution-2" class="section level5">
@@ -688,7 +698,7 @@ in the query sequence?</p>
 <h5>Formula</h5>
 <div class="answer">
 <p><span class="math display">\[
-p_{n} = (M^{K})^{n} \times (1-M^{K})^{T-n} \times \frac{T!}{n! \times
+P_{n} = (M^{K})^{n} \times (1-M^{K})^{T-n} \times \frac{T!}{n! \times
 (T-n)!}\\
 \text{with}\quad T= \left\lfloor\frac{H}{K}\right\rfloor\\\\
 P = P_{n} + P_{n+1} + ... + P_{T}
@@ -740,6 +750,10 @@ this method? Why?</p>
 <h4 class="tabset"></h4>
 <div id="hide-8" class="section level5">
 <h5>Hide</h5>
+</div>
+<div id="hint" class="section level5">
+<h5>Hint</h5>
+<p><img src="figures/sheet-7/blat-multiple.png" width="100%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="solution-8" class="section level5">
 <h5>Solution</h5>
