@@ -370,8 +370,7 @@ div.tocify {
 <hr />
 <div id="exercise-1" class="section level1">
 <h1>Exercise 1</h1>
-<p>You are given the text <span
-class="math inline">\(T=CAGTAGTAGC\)</span></p>
+<p>You are given the text T=<code>CAGTAGTAGC</code></p>
 <div id="a" class="section level3">
 <h3>1a)</h3>
 <div class="question">
@@ -397,7 +396,7 @@ class="math inline">\(T=CAGTAGTAGC\)</span></p>
 <h3>1b)</h3>
 <div class="question">
 <p>Describe the steps of a counting query for <span
-class="math inline">\(P = TAG\)</span></p>
+class="math inline">\(P =\)</span> <code>TAG</code></p>
 </div>
 <div id="section-2" class="section level4 tabset">
 <h4 class="tabset"></h4>
@@ -412,9 +411,8 @@ class="math inline">\(P = TAG\)</span></p>
 <li>locate outgoing edge that starts with <span
 class="math inline">\(T\)</span></li>
 <li>match subsequent characters of the pattern</li>
-<li>in the subtree rooted at <span
-class="math inline">\(\overline{TAG}\)</span> count the number of leaves
-<span class="math inline">\(\Rightarrow 2\)</span></li>
+<li>in the subtree rooted at TAG count the number of leaves <span
+class="math inline">\(\Rightarrow 2\)</span></li>
 </ul>
 </div>
 </div>
@@ -427,7 +425,7 @@ class="math inline">\(\overline{TAG}\)</span> count the number of leaves
 <h3>1c)</h3>
 <div class="question">
 <p>Describe the steps of a reporting query for <span
-class="math inline">\(P = AG\)</span></p>
+class="math inline">\(P =\)</span> <code>AG</code></p>
 </div>
 <div id="section-4" class="section level4 tabset">
 <h4 class="tabset"></h4>
@@ -442,9 +440,8 @@ class="math inline">\(P = AG\)</span></p>
 <li>locate outgoing edge that start with <span
 class="math inline">\(A\)</span></li>
 <li>match subsequent characters of the pattern</li>
-<li>in the subtree rooted at <span
-class="math inline">\(\overline{AG}\)</span> report the labels of all
-leaves <span class="math inline">\(\Rightarrow \{2, 5, 8\}\)</span></li>
+<li>in the subtree rooted at AG report the labels of all leaves <span
+class="math inline">\(\Rightarrow \{2, 5, 8\}\)</span></li>
 </ul>
 </div>
 </div>
@@ -460,8 +457,8 @@ leaves <span class="math inline">\(\Rightarrow \{2, 5, 8\}\)</span></li>
 <h3>2a)</h3>
 <div class="question">
 <p>Draw a generalized suffix tree for the sequences <span
-class="math inline">\(A=CCATG\)</span> and <span
-class="math inline">\(B=CATG\)</span>.</p>
+class="math inline">\(A=\)</span><code>CCATG</code> and <span
+class="math inline">\(B=\)</span> <code>CATG</code>.</p>
 </div>
 <div id="section-6" class="section level4 tabset">
 <h4 class="tabset"></h4>
@@ -472,7 +469,7 @@ class="math inline">\(B=CATG\)</span>.</p>
 <h5>Hint 1</h5>
 <div class="answer">
 <p>Concatenate the two sequences using a unique character for splitting.
-e.g. <span class="math inline">\(CCATG\#CATG\$\)</span>.</p>
+e.g. <code>CCATG#CATG$</code>.</p>
 <p>Dont forget to include suffix links</p>
 </div>
 </div>
@@ -480,11 +477,11 @@ e.g. <span class="math inline">\(CCATG\#CATG\$\)</span>.</p>
 <h5>Formulae</h5>
 <div class="answer">
 <p><span class="math inline">\(sl(v) = w\)</span></p>
-<p><span class="math inline">\(v = \overline{cb}\)</span></p>
-<p><span class="math inline">\(w = \overline{b}\)</span></p>
+<p><span class="math inline">\(\overline{v} = cb\)</span></p>
+<p><span class="math inline">\(\overline{w} = b\)</span></p>
 <p><span class="math inline">\(c: character, b: string\)</span></p>
-<p>remember: over lined strings are a representation for the node at
-that string</p>
+<p>remember: <span class="math inline">\(\overline{v}\)</span> denotes
+the concatenation of all path labels from the root to v.</p>
 </div>
 </div>
 <div id="solution-3" class="section level5">
@@ -502,8 +499,9 @@ that string</p>
 <h3>2b)</h3>
 <div class="question">
 <p>Find the Maximal Unique Matches of the sequences <span
-class="math inline">\(A=CCATG\)</span> and <span
-class="math inline">\(B=CATG\)</span> using the tree from A)</p>
+class="math inline">\(A=\)</span><code>CCATG</code> and <span
+class="math inline">\(B=\)</span><code>CATG</code> using the tree from
+A)</p>
 </div>
 <div id="section-8" class="section level4 tabset">
 <h4 class="tabset"></h4>
@@ -513,9 +511,9 @@ class="math inline">\(B=CATG\)</span> using the tree from A)</p>
 <div id="solution-4" class="section level5">
 <h5>Solution</h5>
 <div class="answer">
-<p><span class="math inline">\(CATG\)</span> is the only MUM as <span
-class="math inline">\(v = \overline{CATG}\)</span> has no suffix links
-pointing to it</p>
+<p><code>CATG</code> is the only MUM as <span
+class="math inline">\(\overline{v} =\)</span> <code>CATG</code> has no
+suffix links pointing to it</p>
 </div>
 </div>
 </div>
@@ -530,7 +528,7 @@ pointing to it</p>
 <h3>3a)</h3>
 <div class="question">
 <p>Draw a generalized suffix tree for the sequence <span
-class="math inline">\(A=ACGCACGCG\)</span>.</p>
+class="math inline">\(A=\)</span><code>ACGCACGCG</code>.</p>
 </div>
 <div id="section-10" class="section level4 tabset">
 <h4 class="tabset"></h4>
@@ -561,8 +559,9 @@ class="math inline">\(A=ACGCACGCG\)</span>.</p>
 <div id="solution-6" class="section level5">
 <h5>Solution</h5>
 <div class="answer">
-<p><span class="math inline">\(ACGC: (1,5,4)\)</span></p>
-<p><span class="math inline">\(CG: (2,8,2), (6,8,2)\)</span></p>
+<p><code>ACGC</code>: <span class="math inline">\((1,5,4)\)</span></p>
+<p><code>CG</code>: <span class="math inline">\((2,8,2),
+(6,8,2)\)</span></p>
 </div>
 </div>
 </div>
@@ -573,8 +572,8 @@ class="math inline">\(A=ACGCACGCG\)</span>.</p>
 <div id="c-1" class="section level3">
 <h3>3c)</h3>
 <div class="question">
-<p>Why is <span class="math inline">\(C: (2, 8, 1)\)</span> not a
-maximal pair?</p>
+<p>Why is <code>C</code>: <span class="math inline">\((2, 8, 1)\)</span>
+not a maximal pair?</p>
 </div>
 <div id="section-14" class="section level4 tabset">
 <h4 class="tabset"></h4>
@@ -584,8 +583,8 @@ maximal pair?</p>
 <div id="solution-7" class="section level5">
 <h5>Solution</h5>
 <div class="answer">
-<p>It is not right maximal. This can be seen since <span
-class="math inline">\(CG: (2, 8, 2)\)</span> already includes the
+<p>It is not right maximal. This can be seen since <code>CG</code>:
+<span class="math inline">\((2, 8, 2)\)</span> already includes the
 indices 2 and 8 with a longer match.</p>
 </div>
 </div>

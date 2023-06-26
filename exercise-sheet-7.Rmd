@@ -25,6 +25,8 @@ We assume that:
 * in our example we assume that homologous areas $H$ are typically $50$ bases long. 
 * our query sequence $Q$ is GTCCTCGGAACCAGGACCTCGGCGTGGCCTAGCG.
 
+In the following exercises, we will focus on the DNA sequences.
+
 # Exercise 1
 
 For the $K$-mer sizes $K=7$ and $K=14$, respectively. 

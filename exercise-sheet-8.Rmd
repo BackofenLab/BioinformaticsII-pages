@@ -13,7 +13,7 @@ title: "Exercise sheet 8: Suffix-Trees"
 
 # Exercise 1
 
-You are given the text $T=CAGTAGTAGC$
+You are given the text T=`CAGTAGTAGC`
 
 
 
@@ -42,7 +42,7 @@ knitr::include_graphics("figures/sheet-8/suffix_tree_1.png")
 ### 1b)
 ::: {.question data-latex=""}
 
-Describe the steps of a counting query for $P = TAG$
+Describe the steps of a counting query for $P =$ `TAG`
 ::: 
 
 #### {.tabset}
@@ -55,7 +55,7 @@ Describe the steps of a counting query for $P = TAG$
 * start at root node
 * locate outgoing edge that starts with $T$
 * match subsequent characters of the pattern
-* in the subtree rooted at $\overline{TAG}$ count the number of leaves $\Rightarrow 2$
+* in the subtree rooted at TAG count the number of leaves $\Rightarrow 2$
 ::: 
 #### {-}
 
@@ -64,7 +64,7 @@ Describe the steps of a counting query for $P = TAG$
 ### 1c)
 ::: {.question data-latex=""}
 
-Describe the steps of a reporting query for $P = AG$
+Describe the steps of a reporting query for $P =$ `AG`
 ::: 
 
 #### {.tabset}
@@ -77,7 +77,7 @@ Describe the steps of a reporting query for $P = AG$
 * start at root node
 * locate outgoing edge that start with $A$
 * match subsequent characters of the pattern
-* in the subtree rooted at $\overline{AG}$ report the labels of all leaves $\Rightarrow \{2, 5, 8\}$
+* in the subtree rooted at AG report the labels of all leaves $\Rightarrow \{2, 5, 8\}$
 ::: 
 #### {-}
 
@@ -86,7 +86,7 @@ Describe the steps of a reporting query for $P = AG$
 ### 2a)
 ::: {.question data-latex=""}
 
-Draw a generalized suffix tree for the sequences $A=CCATG$ and $B=CATG$.
+Draw a generalized suffix tree for the sequences $A=$`CCATG` and $B=$ `CATG`.
 ::: 
 
 #### {.tabset}
@@ -97,7 +97,7 @@ Draw a generalized suffix tree for the sequences $A=CCATG$ and $B=CATG$.
 ::: {.answer data-latex=""}
 
 Concatenate the two sequences using a unique character for splitting. e.g.
-$CCATG\#CATG\$$.
+`CCATG#CATG$`.
 
 Dont forget to include suffix links 
 ::: 
@@ -106,14 +106,14 @@ Dont forget to include suffix links
 
 $sl(v) = w$
 
-$v = \overline{cb}$
+$\overline{v} = cb$
 
-$w = \overline{b}$
+$\overline{w} = b$
 
 $c: character, b: string$
 
 
-remember: over lined strings are a representation for the node at that string
+remember: $\overline{v}$ denotes the concatenation of all path labels from the root to v.
 ::: 
 ##### Solution
 ::: {.answer data-latex=""}
@@ -127,7 +127,7 @@ knitr::include_graphics("figures/sheet-8/suffix_tree_2.png")
 ### 2b)
 ::: {.question data-latex=""}
 
-Find the Maximal Unique Matches of the sequences $A=CCATG$ and $B=CATG$ using 
+Find the Maximal Unique Matches of the sequences $A=$`CCATG` and $B=$`CATG` using 
 the tree from A)
 ::: 
 
@@ -138,7 +138,7 @@ the tree from A)
 ##### Solution
 ::: {.answer data-latex=""}
 
-$CATG$ is the only MUM as $v = \overline{CATG}$ has no suffix links pointing to
+`CATG` is the only MUM as $\overline{v} =$ `CATG` has no suffix links pointing to
 it
 ::: 
 #### {-}
@@ -149,7 +149,7 @@ it
 ### 3a)
 ::: {.question data-latex=""}
 
-Draw a generalized suffix tree for the sequence $A=ACGCACGCG$.
+Draw a generalized suffix tree for the sequence $A=$`ACGCACGCG`.
 ::: 
 
 #### {.tabset}
@@ -180,9 +180,9 @@ Find all maximal pairs of length at least 2
 ##### Solution
 ::: {.answer data-latex=""}
 
-$ACGC: (1,5,4)$
+`ACGC`: $(1,5,4)$
 
-$CG: (2,8,2), (6,8,2)$
+`CG`: $(2,8,2), (6,8,2)$
 ::: 
 #### {-}
 
@@ -190,7 +190,7 @@ $CG: (2,8,2), (6,8,2)$
 ### 3c)
 ::: {.question data-latex=""}
 
-Why is $C: (2, 8, 1)$ not a maximal pair?
+Why is `C`: $(2, 8, 1)$ not a maximal pair?
 
 ::: 
 
@@ -202,7 +202,7 @@ Why is $C: (2, 8, 1)$ not a maximal pair?
 ::: {.answer data-latex=""}
 
 It is not right maximal.
-This can be seen since $CG: (2, 8, 2)$ already includes the indices 2 and 8 with
+This can be seen since `CG`: $(2, 8, 2)$ already includes the indices 2 and 8 with
 a longer match. 
 
 ::: 
