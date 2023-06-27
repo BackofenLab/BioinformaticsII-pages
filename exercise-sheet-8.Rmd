@@ -13,7 +13,7 @@ title: "Exercise sheet 8: Suffix-Trees"
 
 # Exercise 1
 
-You are given the text T=`CAGTAGTAGC`
+You are given the text T=`CAGTAGTAGC`.
 
 
 
@@ -21,7 +21,7 @@ You are given the text T=`CAGTAGTAGC`
 
 ::: {.question data-latex=""}
 
-Draw the corresponding suffix tree
+Draw the corresponding suffix tree!
 ::: 
 
 #### {.tabset}
@@ -42,7 +42,7 @@ knitr::include_graphics("figures/sheet-8/suffix_tree_1.png")
 ### 1b)
 ::: {.question data-latex=""}
 
-Describe the steps of a counting query for $P =$ `TAG`
+Describe the steps of a counting query for $P =$ `TAG`.
 ::: 
 
 #### {.tabset}
@@ -64,7 +64,7 @@ Describe the steps of a counting query for $P =$ `TAG`
 ### 1c)
 ::: {.question data-latex=""}
 
-Describe the steps of a reporting query for $P =$ `AG`
+Describe the steps of a reporting query for $P =$ `AG`.
 ::: 
 
 #### {.tabset}
@@ -99,7 +99,7 @@ Draw a generalized suffix tree for the sequences $A=$`CCATG` and $B=$ `CATG`.
 Concatenate the two sequences using a unique character for splitting. e.g.
 `CCATG#CATG$`.
 
-Dont forget to include suffix links 
+Dont forget to include suffix links!
 ::: 
 ##### Formulae
 ::: {.answer data-latex=""}
@@ -128,7 +128,7 @@ knitr::include_graphics("figures/sheet-8/suffix_tree_2.png")
 ::: {.question data-latex=""}
 
 Find the Maximal Unique Matches of the sequences $A=$`CCATG` and $B=$`CATG` using 
-the tree from A)
+the tree from A).
 ::: 
 
 #### {.tabset}
@@ -170,7 +170,7 @@ knitr::include_graphics("figures/sheet-8/suffix_tree_3.png")
 ### 3b)
 ::: {.question data-latex=""}
 
-Find all maximal pairs of length at least 2
+Find all maximal pairs of length at least 2.
 ::: 
 
 #### {.tabset}
