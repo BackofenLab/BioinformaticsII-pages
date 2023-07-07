@@ -185,17 +185,11 @@ local alignment has to be performed.
 
 # Exercise 3 - Programming assignment
 
-::: {#hazard-background .hazard-background }
+For the programming tasks, please follow the instructions given in GitHub Classroom under the following link.
 
-:::
 
-::: {.construction }
-Under Construction
-:::
+[https://classroom.github.com/a/ABJ6qwOf](https://classroom.github.com/a/ABJ6qwOf)
 
-::: {#hazard-background .hazard-background }
-
-:::
 
 -------------------------------------------
 
