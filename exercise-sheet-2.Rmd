@@ -173,12 +173,23 @@ Draw the graphical representation of the profile HMM for the given multiple alig
 ##### Hide
 
 
-##### Solution
+##### Solution 1
 
 ::: {.answer data-latex=""}
 
-```{r, echo=FALSE, out.width="100%", fig.align='center'}
-knitr::include_graphics("figures/sheet-2/sheet2_exercise2.png")
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("figures/sheet-2/FullProfileHMM.png")
+```
+:::
+
+##### Solution 2
+
+Since some of the transition probabilities will be zero (dotted lines) we can remove corresponding states (transparent).
+
+::: {.answer data-latex=""}
+
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("figures/sheet-2/PartialProfileHMM.png")
 ```
 :::
 #### {-}
