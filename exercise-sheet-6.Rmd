@@ -171,7 +171,7 @@ List all possible words for the first $k$-length word (AT) that have a score of 
 
 ### 2c)
 
-Scan the database for exact matches for the words from the question 3B.
+Scan the database for exact matches for the words from the question 2B.
 
 #### {.tabset}
 
@@ -187,7 +187,7 @@ Scan the database for exact matches for the words from the question 3B.
 
 ### 2d)
 
-Extend the exact matches that you found in the question 3C to the left/right and report all MSPs with a score greater than $4$.
+Extend the exact matches that you found in the question 2C to the left/right and report all MSPs with a score greater than $4$.
 
 #### {.tabset}
 
