@@ -4,5 +4,5 @@ This repository caintains all the files necessary to compile the self-learning e
 
 The current version of the page can be found here:
 
-https://bioinformatics2-teaching.github.io/BioinformaticsII-pages/
+https://backofenlab.github.io/BioinformaticsII-pages/
 

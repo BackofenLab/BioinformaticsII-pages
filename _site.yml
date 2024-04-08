@@ -1,7 +1,7 @@
 name: "BioinformaticsII"
 output_dir: "docs"
 author: "@CARD"
-date: "SS2022"
+date: "SS2024"
 language: en
 output:
   html_document:
@@ -19,5 +19,4 @@ output:
       in_header: "_tex/latex_commands.tex"
 urlcolor: blue
 linkcolor: blue
-exclude: ["*.tex", "*.log"]
 
