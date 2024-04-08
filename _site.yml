@@ -13,6 +13,7 @@ output:
     theme: "cosmo"
     css: "bioinf-style.css"
     includes:
+        in_header: header.html
         after_body: "assets/html/removeSolution.html"
 urlcolor: blue
 linkcolor: blue
