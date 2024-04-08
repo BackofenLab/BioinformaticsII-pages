@@ -256,7 +256,4 @@ For the programming tasks, please follow the instructions given in GitHub Classr
 
 -------------------------------------------
 
-```{r, include=knitr::is_html_output(), echo=F}
-knitr::asis_output('Download: <a href="exercise-sheet-6.pdf" title="Download PDF Version">PDF Version</a> of this page.')
-```
 

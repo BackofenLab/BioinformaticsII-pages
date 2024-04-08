@@ -323,6 +323,3 @@ b: ___ACCAAG
 
 -------------------------------------------
 
-```{r, include=knitr::is_html_output(), echo=F}
-knitr::asis_output('Download: <a href="exercise-sheet-3.pdf" title="Download PDF Version">PDF Version</a> of this page.')
-```
