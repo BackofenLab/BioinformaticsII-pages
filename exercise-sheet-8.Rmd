@@ -6,7 +6,7 @@ library(officer)
 ```
 
 ---
-title: "Exercise sheet 9: Data Driven Life Sciences"
+title: "Exercise sheet 8: Data Driven Life Sciences"
 ---
 
 ---------------------------------
