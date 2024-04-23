@@ -266,11 +266,11 @@ For the programming tasks, please follow the instructions given in GitHub Classr
 
 ### 1) Intro and warm-up python programming tasks:
 
-[https://classroom.github.com/a/i_FyA5SR](https://classroom.github.com/a/i_FyA5SR)
+[https://classroom.github.com/a/SUI8mcnU](https://classroom.github.com/a/SUI8mcnU)
 
 ### 2) Hidden Markov Models tasks:
 
-[https://classroom.github.com/a/E-FEwES4](https://classroom.github.com/a/E-FEwES4)
+[https://classroom.github.com/a/ApR1EvKU](https://classroom.github.com/a/ApR1EvKU)
 
 
 -------------------------------------------

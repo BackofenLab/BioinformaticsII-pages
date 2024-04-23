@@ -188,7 +188,7 @@ local alignment has to be performed.
 For the programming tasks, please follow the instructions given in GitHub Classroom under the following link.
 
 
-[https://classroom.github.com/a/ABJ6qwOf](https://classroom.github.com/a/ABJ6qwOf)
+[https://classroom.github.com/a/7TbHYZaw](https://classroom.github.com/a/7TbHYZaw)
 
 
 -------------------------------------------
